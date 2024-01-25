@@ -1,8 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+﻿<!-- Slider Start -->
+@await Html.PartialAsync("_Slider")
+@await Html.PartialAsync("_FeaturedColumns")
+@await Html.PartialAsync("_FeaturedContent")
+@await Html.PartialAsync("_Statistics")
+@await Html.PartialAsync("_Services")
+@await Html.PartialAsync("_ContactForm")
+@await Html.PartialAsync("_CustomerReviews")
+@await Html.PartialAsync("_Partners")
