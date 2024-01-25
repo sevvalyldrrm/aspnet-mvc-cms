@@ -8,5 +8,7 @@ namespace Cms.Data.Entity
 {
 	internal class CategoryPost
 	{
-	}
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }
