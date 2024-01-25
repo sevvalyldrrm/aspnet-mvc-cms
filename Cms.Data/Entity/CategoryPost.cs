@@ -1,14 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-	internal class CategoryPost
+	public class CategoryPost
 	{
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { get; set; }
+
+		[Required(ErrorMessage = "{0} boş geçilemez")]
+		[ForeignKey("Category")]
+		public int CategoryId { get; set; }
+
+		[Required(ErrorMessage = "{0} boş geçilemez")]
+		[ForeignKey("Post")]
+		public int PostId { get; set; }
+
+		// Navigation properties
+		//public Category Category { get; set; }
+		//public Post Post { get; set; }
+	}
 }
