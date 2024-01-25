@@ -8,5 +8,6 @@ namespace Cms.Data.Entity
 {
 	internal class Page
 	{
-	}
+        public string Name { get; set; }
+    }
 }
