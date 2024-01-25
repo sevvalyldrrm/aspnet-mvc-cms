@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-	internal class Page
+	public class Page
 	{
+
+        public int Id { get; set; }
         public string Name { get; set; }
-    }
+   }
+
+		
+	
+
 }
