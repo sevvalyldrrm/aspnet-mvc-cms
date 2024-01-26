@@ -25,5 +25,7 @@ namespace Cms.Data.Entity
 
 		// Navigation property
 		public ICollection<CategoryPost> CategoryPosts { get; set; }
-	}
+
+        
+    }
 }
