@@ -6,14 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class PostImage
+	public class PostImage : BaseEntity
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("Post")]
@@ -23,7 +21,5 @@ namespace Cms.Data.Entity
 		[DisplayName("Dosya yolu")]
 		public string ImagePath { get; set; }
 
-		// Navigation property
-		//public Post Post { get; set; }
 	}
 }

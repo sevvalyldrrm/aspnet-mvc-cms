@@ -6,14 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class Category
+	public class Category : BaseEntity
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
 
 		[DisplayName("İsim")]
 		[Required(ErrorMessage = "{0} boş geçilemez")]
@@ -22,10 +20,7 @@ namespace Cms.Data.Entity
 		[DisplayName("Açıklama")]
 		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
 		public string Description { get; set; }
-
-		// Navigation property
 		public ICollection<CategoryPost> CategoryPosts { get; set; }
 
-        
     }
 }

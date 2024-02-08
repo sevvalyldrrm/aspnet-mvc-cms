@@ -27,13 +27,16 @@ namespace Cms.Data.DataContext
 				optionsBuilder.UseSqlServer(connectionString);
 			}
 		}
-		public DbSet<User> Users { get; set; }
+		public DbSet<AppUser> AppUsers { get; set; }
+		public DbSet<Appointment> Appointments { get; set; }
 		public DbSet<Post> Posts { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<CategoryPost> CategoryPosts { get; set; }
 		public DbSet<PostImage> PostImages { get; set; }
 		public DbSet<PostComment> PostComments { get; set; }
 		public DbSet<Page> Pages { get; set; }
+		public DbSet<Doctor> Doctors { get; set; }
+		public DbSet<Patient> Patients { get; set; }
 		public DbSet<Setting> Settings { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -52,42 +55,42 @@ namespace Cms.Data.DataContext
 
 	);
 			modelBuilder.Entity<Post>().HasData(
-		new Post { Id = 1, UserId = 1, Title = "Yeni Teknolojiler", Content = "Yeni teknolojiler hakkında bilgiler." },
-		new Post { Id = 2, UserId = 1, Title = "Spor Dünyası", Content = "Spor dünyasından son gelişmeler." },
-		new Post { Id = 3, UserId = 9, Title = "Sağlıklı Yaşam", Content = "Sağlıklı yaşam için ipuçları." },
-		new Post { Id = 4, UserId = 2, Title = "Eğitimde Yenilikler", Content = "Eğitim alanında yaşanan son gelişmeler." },
-		new Post { Id = 5, UserId = 8, Title = "Ekonomi Analizi", Content = "Dünya ekonomisine genel bir bakış." },
-		new Post { Id = 6, UserId = 3, Title = "Seyahat Rehberi", Content = "Keşfedilecek yeni yerler." },
-		new Post { Id = 7, UserId = 4, Title = "Sanatın Kalbi", Content = "Sanat dünyasından haberler." },
-		new Post { Id = 8, UserId = 5, Title = "Moda Dünyasında Neler Oluyor?", Content = "Moda dünyasının nabzı." },
-		new Post { Id = 9, UserId = 6, Title = "Gastronomi Keşifleri", Content = "Gastronomi dünyasından lezzetli haberler." },
-		new Post { Id = 10, UserId = 7, Title = "Teknolojik Gelişmeler", Content = "Teknolojideki son gelişmeler ve inovasyonlar." }
+		new Post { Id = 1, AppUserId = 1, Title = "Yeni Teknolojiler", Content = "Yeni teknolojiler hakkında bilgiler." },
+		new Post { Id = 2, AppUserId = 1, Title = "Spor Dünyası", Content = "Spor dünyasından son gelişmeler." },
+		new Post { Id = 3, AppUserId = 9, Title = "Sağlıklı Yaşam", Content = "Sağlıklı yaşam için ipuçları." },
+		new Post { Id = 4, AppUserId = 2, Title = "Eğitimde Yenilikler", Content = "Eğitim alanında yaşanan son gelişmeler." },
+		new Post { Id = 5, AppUserId = 8, Title = "Ekonomi Analizi", Content = "Dünya ekonomisine genel bir bakış." },
+		new Post { Id = 6, AppUserId = 3, Title = "Seyahat Rehberi", Content = "Keşfedilecek yeni yerler." },
+		new Post { Id = 7, AppUserId = 4, Title = "Sanatın Kalbi", Content = "Sanat dünyasından haberler." },
+		new Post { Id = 8, AppUserId = 5, Title = "Moda Dünyasında Neler Oluyor?", Content = "Moda dünyasının nabzı." },
+		new Post { Id = 9, AppUserId = 6, Title = "Gastronomi Keşifleri", Content = "Gastronomi dünyasından lezzetli haberler." },
+		new Post { Id = 10, AppUserId = 7, Title = "Teknolojik Gelişmeler", Content = "Teknolojideki son gelişmeler ve inovasyonlar." }
 
 	);
-			modelBuilder.Entity<User>().HasData(
-		new User { Id = 1, Email = "admin@example.com", Password = "123456", Name = "Admin", City = "İstanbul", Phone = "1234567890" },
-		new User { Id = 2, Email = "user1@example.com", Password = "123456", Name = "User One", City = "Ankara", Phone = "1234567891" },
-		new User { Id = 3, Email = "user2@example.com", Password = "123456", Name = "User Two", City = "İzmir", Phone = "1234567892" },
-		new User { Id = 4, Email = "user3@example.com", Password = "123456", Name = "User Three", City = "Antalya", Phone = "1234567893" },
-		new User { Id = 5, Email = "user4@example.com", Password = "123456", Name = "User Four", City = "Bursa", Phone = "1234567894" },
-		new User { Id = 6, Email = "user5@example.com", Password = "123456", Name = "User Five", City = "Adana", Phone = "1234567895" },
-		new User { Id = 7, Email = "user6@example.com", Password = "123456", Name = "User Six", City = "Konya", Phone = "1234567896" },
-		new User { Id = 8, Email = "user7@example.com", Password = "123456", Name = "User Seven", City = "Gaziantep", Phone = "1234567897" },
-		new User { Id = 9, Email = "user8@example.com", Password = "123456", Name = "User Eight", City = "Samsun", Phone = "1234567898" },
-		new User { Id = 10, Email = "user9@example.com", Password = "123456", Name = "User Nine", City = "Kayseri", Phone = "1234567899" }
+			modelBuilder.Entity<AppUser>().HasData(
+		new AppUser { FullName = "Admin", City = "İstanbul" },
+		new AppUser { FullName = "User One", City = "Ankara" },
+		new AppUser { FullName = "User Two", City = "İzmir" },
+		new AppUser { FullName = "User Three", City = "Antalya" },
+		new AppUser { FullName = "User Four", City = "Bursa" },
+		new AppUser { FullName = "User Five", City = "Adana" },
+		new AppUser { FullName = "User Six", City = "Konya" },
+		new AppUser { FullName = "User Seven", City = "Gaziantep" },
+		new AppUser { FullName = "User Eight", City = "Samsun" },
+		new AppUser { FullName = "User Nine", City = "Kayseri" }
 
 	);
 			modelBuilder.Entity<PostComment>().HasData(
-		new PostComment { Id = 1, PostId = 1, UserId = 1, Comment = "Harika bir yazı!", IsActive = true },
-		new PostComment { Id = 2, PostId = 1, UserId = 2, Comment = "Çok bilgilendirici, teşekkürler.", IsActive = true },
-		new PostComment { Id = 3, PostId = 1, UserId = 3, Comment = "Bu konuda daha fazla bilgi bekliyorum.", IsActive = true },
-		new PostComment { Id = 4, PostId = 2, UserId = 4, Comment = "Sporla ilgili bu tür yazıları seviyorum.", IsActive = true },
-		new PostComment { Id = 5, PostId = 2, UserId = 5, Comment = "Yazarın bakış açısını beğendim.", IsActive = true },
-		new PostComment { Id = 6, PostId = 2, UserId = 6, Comment = "Faydalı bir yazı olmuş.", IsActive = true },
-		new PostComment { Id = 7, PostId = 1, UserId = 7, Comment = "Teknolojinin geldiği nokta gerçekten şaşırtıcı.", IsActive = true },
-		new PostComment { Id = 8, PostId = 1, UserId = 8, Comment = "Yazar bu konuda çok iyi bilgi sahibi.", IsActive = true },
-		new PostComment { Id = 9, PostId = 2, UserId = 9, Comment = "Spor haberlerini takip etmeyi seviyorum.", IsActive = true },
-		new PostComment { Id = 10, PostId = 3, UserId = 10, Comment = "Daha fazla spor içeriği görmek isterim.", IsActive = true }
+		new PostComment { Id = 1, PostId = 1, AppUserId = 1, Comment = "Harika bir yazı!", IsActive = true },
+		new PostComment { Id = 2, PostId = 1, AppUserId = 2, Comment = "Çok bilgilendirici, teşekkürler.", IsActive = true },
+		new PostComment { Id = 3, PostId = 1, AppUserId = 3, Comment = "Bu konuda daha fazla bilgi bekliyorum.", IsActive = true },
+		new PostComment { Id = 4, PostId = 2, AppUserId = 4, Comment = "Sporla ilgili bu tür yazıları seviyorum.", IsActive = true },
+		new PostComment { Id = 5, PostId = 2, AppUserId = 5, Comment = "Yazarın bakış açısını beğendim.", IsActive = true },
+		new PostComment { Id = 6, PostId = 2, AppUserId = 6, Comment = "Faydalı bir yazı olmuş.", IsActive = true },
+		new PostComment { Id = 7, PostId = 1, AppUserId = 7, Comment = "Teknolojinin geldiği nokta gerçekten şaşırtıcı.", IsActive = true },
+		new PostComment { Id = 8, PostId = 1, AppUserId = 8, Comment = "Yazar bu konuda çok iyi bilgi sahibi.", IsActive = true },
+		new PostComment { Id = 9, PostId = 2, AppUserId = 9, Comment = "Spor haberlerini takip etmeyi seviyorum.", IsActive = true },
+		new PostComment { Id = 10, PostId = 3, AppUserId = 10, Comment = "Daha fazla spor içeriği görmek isterim.", IsActive = true }
 
 	  );
 			modelBuilder.Entity<PostImage>().HasData(

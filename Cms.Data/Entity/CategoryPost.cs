@@ -5,14 +5,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class CategoryPost
+	public class CategoryPost : BaseEntity
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("Category")]
@@ -22,8 +20,6 @@ namespace Cms.Data.Entity
 		[ForeignKey("Post")]
 		public int PostId { get; set; }
 
-		// Navigation properties
-		//public Category Category { get; set; }
-		//public Post Post { get; set; }
+		
 	}
 }
