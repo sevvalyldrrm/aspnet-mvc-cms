@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-	public interface IAuditEntity
+	public class Patient : AppUser
 	{
-		DateTime CreatedAt { get; set; }
-		DateTime UpdatedAt { get; set; }
-		DateTime? DeletedAt { get; set; }
+		public string Diagnosis {  get; set; }
+
+		public bool IsDischarged { get; set; }
+
+		public int DoctorId { get; set; }
+
 	}
 }

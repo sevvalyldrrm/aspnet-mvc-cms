@@ -6,14 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class Setting
+	public class Setting : BaseEntity
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("User")]
@@ -30,7 +28,6 @@ namespace Cms.Data.Entity
 		[DisplayName("Değer")]
 		public string Value { get; set; }
 
-		// Navigation property
-		//public User User { get; set; }
+		
 	}
 }
