@@ -8,12 +8,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Cms.Data.DataContext;
 
 namespace Cms.Data.Concrete
 {
 	public class Repository<TEntity, TContext> : IRepository<TEntity>
 		where TEntity : class
-		where TContext : Data.DataContext.AppDbContext, new()
+		where TContext : AppDbContext, new()
 	{
 		public async Task AddAsync(TEntity entity)
 		{

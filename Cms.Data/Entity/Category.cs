@@ -22,5 +22,7 @@ namespace Cms.Data.Entity
 		public string Description { get; set; }
 		public ICollection<CategoryPost> CategoryPosts { get; set; }
 
+		public Doctor Doctor { get; set; }
+
     }
 }
