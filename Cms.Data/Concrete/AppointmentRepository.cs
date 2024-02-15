@@ -13,16 +13,13 @@ namespace Cms.Data.Concrete
 {
 	public class AppointmentRepository : Repository<Appointment,AppDbContext>, IAppointmentRepository
 	{
+
 		private readonly AppDbContext _context;
 
 		public async Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
 		{
 			return await _context.Appointments.Include(a => a.Doctor).Include(a => a.Category).ToListAsync();
 
-			//return await _context.Appointments.Select(x => new Doctor
-			//{
-			//	FullName = x.FullName
-			//}).ToListAsync();
 		}
 
 		public async Task<Appointment> GetAppointmentByIncludeAsync(int id)

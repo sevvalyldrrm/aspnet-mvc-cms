@@ -11,7 +11,7 @@ namespace Cms.Data.Abstract
 {
 	public interface IPatientRepository : IRepository<Patient>
 	{
-		Task<Patient> GetPatientByIncludeAsync(int id);
+		Task<Patient> GetPatientByIncludeAsync(string id);
 
 		Task<List<Patient>> GetAllPatientsByIncludeAsync();
 

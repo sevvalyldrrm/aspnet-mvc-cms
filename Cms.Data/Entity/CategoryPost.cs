@@ -16,9 +16,13 @@ namespace Cms.Data.Entity
 		[ForeignKey("Category")]
 		public int CategoryId { get; set; }
 
+		public Category Category { get; set; }
+
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("Post")]
 		public int PostId { get; set; }
+
+		public Post Post {  get; set; }
 
 		
 	}
