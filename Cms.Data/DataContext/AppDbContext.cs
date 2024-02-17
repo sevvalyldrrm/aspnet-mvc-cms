@@ -1,5 +1,6 @@
 ﻿using Cms.Data.Entity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.DataContext
 {
-	public class AppDbContext : DbContext
+	public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
 	{
 		private readonly IConfiguration _configuration;
 		public AppDbContext() { }
@@ -67,6 +68,26 @@ namespace Cms.Data.DataContext
 		new Post { Id = 10, AppUserId = 7, Title = "Teknolojik Gelişmeler", Content = "Teknolojideki son gelişmeler ve inovasyonlar." }
 
 	);
+
+			modelBuilder.Entity<AppRole>().HasData(new AppRole
+			{
+				Id = "1",
+				Name = "Admin",
+				NormalizedName = "ADMIN"
+			},
+			new AppRole
+			{
+				Id = "2",
+				Name = "Doctor",
+				NormalizedName = "DOCTOR"
+			},
+			new AppRole
+			{
+				Id = "3",
+				Name = "Patient",
+				NormalizedName = "PATIENT"
+			});
+
 			modelBuilder.Entity<AppUser>().HasData(
 		new AppUser { FullName = "Admin", City = "İstanbul" },
 		new AppUser { FullName = "User One", City = "Ankara" },
