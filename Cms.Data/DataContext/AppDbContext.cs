@@ -12,23 +12,16 @@ namespace Cms.Data.DataContext
 {
 	public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
 	{
-		private readonly IConfiguration _configuration;
+		
 		public AppDbContext() { }
 
-		public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration configuration) : base(options)
+		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 		{
-			_configuration = configuration;
+			
 		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			if (!optionsBuilder.IsConfigured)
-			{
-				var connectionString = _configuration.GetConnectionString("DBConStr");
-				optionsBuilder.UseSqlServer(connectionString);
-			}
-		}
-		public DbSet<AppUser> AppUsers { get; set; }
+		
+		//public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<Appointment> Appointments { get; set; }
 		public DbSet<Post> Posts { get; set; }
 		public DbSet<Category> Categories { get; set; }
@@ -42,7 +35,8 @@ namespace Cms.Data.DataContext
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<Category>().HasData(
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Category>().HasData(
 		new Category { Id = 1, Name = "Teknoloji", Description = "Teknoloji ile ilgili haberler" },
 		new Category { Id = 2, Name = "Spor", Description = "Spor haberleri" },
 		new Category { Id = 3, Name = "Sağlık", Description = "Sağlık ve yaşam tarzı ile ilgili bilgiler" },
