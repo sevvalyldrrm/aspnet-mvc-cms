@@ -18,8 +18,8 @@ namespace Cms.Data.Entity
 		public int AppUserId { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
-		[DisplayName("Başlık")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
+        [DisplayName("Başlık")]
 		public string Title { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]

@@ -11,13 +11,12 @@ namespace Cms.Data.Entity
 {
 	public class AppUser : IdentityUser
 	{
-
-		[StringLength(100, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
-		[DisplayName("İsim")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
+        [DisplayName("İsim")]
 		public string FullName { get; set; }
 
-		[StringLength(100, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
-		[DisplayName("Şehir")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
+        [DisplayName("Şehir")]
 		public string City { get; set; }
 
 	}
