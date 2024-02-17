@@ -15,8 +15,8 @@ namespace Cms.Data.Entity
 
 		[DisplayName("İsim")]
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[StringLength(100, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
-		public string Name { get; set; }
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
+        public string Name { get; set; }
 		[DisplayName("Açıklama")]
 		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
 		public string Description { get; set; }
