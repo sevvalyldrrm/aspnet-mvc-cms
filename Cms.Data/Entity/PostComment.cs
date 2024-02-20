@@ -28,5 +28,10 @@ namespace Cms.Data.Entity
 
 		public Patient Patient { get; set; }
 
+		public AppUser AppUser { get; set; }
+
+		[ForeignKey(nameof (AppUser.Id))]
+		public string AppUserId {  get; set; }
+
 	}
 }

@@ -26,7 +26,7 @@ namespace Cms.Data.Entity
 		[DisplayName("İçerik")]
 		public string Content { get; set; }
 
-		public ICollection<CategoryPost> CategoryPosts { get; set; }
+		public ICollection<DepartmentPost> DepartmentPosts { get; set; }
 		public ICollection<PostImage> PostImages { get; set; }
 		public ICollection<PostComment> PostComments { get; set; }
 	}

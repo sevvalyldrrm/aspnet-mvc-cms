@@ -9,14 +9,14 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class CategoryPost : BaseEntity
+	public class DepartmentPost : BaseEntity
 	{
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[ForeignKey("Category")]
-		public int CategoryId { get; set; }
+		[ForeignKey("Department")]
+		public int DepartmentId { get; set; }
 
-		public Category Category { get; set; }
+		public Department Department { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("Post")]

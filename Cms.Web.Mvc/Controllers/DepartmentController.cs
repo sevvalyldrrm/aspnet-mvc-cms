@@ -2,7 +2,7 @@
 
 namespace Cms.Web.Mvc.Controllers
 {
-	public class CategoryController : Controller
+	public class DepartmentController : Controller
 	{
 		public IActionResult Index(int id, int page)
 		{

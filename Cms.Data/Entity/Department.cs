@@ -10,7 +10,7 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class Category : BaseEntity
+	public class Department : BaseEntity
 	{
 
 		[DisplayName("İsim")]
@@ -20,7 +20,7 @@ namespace Cms.Data.Entity
 		[DisplayName("Açıklama")]
 		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
 		public string Description { get; set; }
-		public ICollection<CategoryPost> CategoryPosts { get; set; }
+		public ICollection<DepartmentPost> DepartmentPosts { get; set; }
 
 		public Doctor Doctor { get; set; }
 

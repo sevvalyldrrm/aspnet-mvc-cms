@@ -1,0 +1,13 @@
+public async Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression)
+		{
+			return await _context.Doctors.Where(expression).Include(d => d.DoctorPatients).ThenInclude(dp => dp.Patient).Include(d => d.Role).Include(d => d.Department).ToListAsync();
+		}
+
+public async Task<List<Patient>> GetSomePatientsByIncludeAsync(Expression<Func<Patient, bool>> expression)
+		{
+			return await _context.Patients.Where(expression).Include(d => d.Role).Include(p => p.DoctorPatients).ThenInclude(dp => dp.Doctor).ToListAsync();
+		}
+
+		bu ikisinin arasindaki farki tolga hocaya soralim?
+
+		entity/page/working days /check box 
