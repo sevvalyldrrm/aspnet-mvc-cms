@@ -29,7 +29,7 @@ namespace Cms.Service.Concrete
 			await _repository.DeleteAsync(entity);
 		}
 
-		public async Task<Doctor> FindAsync(int id)
+		public async Task<Doctor> FindAsync(string id)
 		{
 			return await _repository.FindAsync(id);
 		}
@@ -44,12 +44,27 @@ namespace Cms.Service.Concrete
 			return await _repository.GetAllAsync(expression);
 		}
 
-		public async Task<Doctor> GetAsync(Expression<Func<Doctor, bool>> expression)
+        public async Task<List<Doctor>> GetAllDoctorsByIncludeAsync()
+        {
+            return await _repository.GetAllDoctorsByIncludeAsync();
+        }
+
+        public async Task<Doctor> GetAsync(Expression<Func<Doctor, bool>> expression)
 		{
 			return await _repository.GetAsync(expression);
 		}
 
-		public async Task<int> SaveAsync()
+        public async Task<Doctor> GetDoctorByIncludeAsync(string id)
+        {
+            return await _repository.GetDoctorByIncludeAsync(id);
+        }
+
+        public async Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression)
+        {
+            return await _repository.GetSomeDoctorsByIncludeAsync(expression);
+        }
+
+        public async Task<int> SaveAsync()
 		{
 			return await _repository.SaveAsync();
 		}

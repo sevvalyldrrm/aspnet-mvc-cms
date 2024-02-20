@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity.BaseEntites
 {
-	public abstract class BaseEntity : IEntity
-	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
-	}
+    public abstract class BaseEntity : BaseAuditEntity, IEntity
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+    }
 }

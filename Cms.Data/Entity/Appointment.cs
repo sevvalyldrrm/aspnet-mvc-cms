@@ -11,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-	public class Appointment : BaseAuditEntity
-	{
+	public class Appointment : BaseEntity
+    {
 		[ForeignKey("CategoryId")]
 		public int CategoryId { get; set; }
 

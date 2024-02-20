@@ -10,8 +10,8 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class Page : BaseAuditEntity
-	{
+	public class Page : BaseEntity
+    {
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
         [StringLength(200, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]

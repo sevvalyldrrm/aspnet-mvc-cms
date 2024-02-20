@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity.BaseEntites
 {
-    public interface IAuditEntity : IEntity
+    public interface IAuditEntity 
     {
         DateTime CreatedAt { get; set; }
         DateTime UpdatedAt { get; set; }

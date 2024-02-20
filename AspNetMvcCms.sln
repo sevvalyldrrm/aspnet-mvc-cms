@@ -7,9 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cms.Web.Mvc", "Cms.Web.Mvc\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cms.Data", "Cms.Data\Cms.Data.csproj", "{0AAFE7C6-F76A-44FD-B78F-283BAC2BAFA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cms.WebAPI", "Cms.WebAPI\Cms.WebAPI.csproj", "{7B8EE2B4-E15B-4162-9A3E-73585B358CC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cms.WebAPI", "Cms.WebAPI\Cms.WebAPI.csproj", "{7B8EE2B4-E15B-4162-9A3E-73585B358CC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cms.Service", "Cms.Service\Cms.Service.csproj", "{3074F800-D119-4E05-AB25-FDB904694EC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cms.Service", "Cms.Service\Cms.Service.csproj", "{3074F800-D119-4E05-AB25-FDB904694EC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{1025D5EB-8ACC-4340-B3E1-C155DBE19496}"
+	ProjectSection(SolutionItems) = preProject
+		Notlar uur.txt = Notlar uur.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

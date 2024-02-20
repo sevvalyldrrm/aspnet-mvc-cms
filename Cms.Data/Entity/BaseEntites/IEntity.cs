@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity.BaseEntites
 {
-	public interface IEntity
-	{
+	public interface IEntity: IAuditEntity
+    {
 		public int Id { get; set; }
 	}
 }
