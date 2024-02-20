@@ -1,6 +1,7 @@
 ﻿using Cms.Data.Abstract;
 using Cms.Data.Entity;
 using Cms.Service.Abstract;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,12 +45,27 @@ namespace Cms.Service.Concrete
 			return await _repository.GetAllAsync(expression);
 		}
 
-		public async Task<Category> GetAsync(Expression<Func<Category, bool>> expression)
+        public async Task<List<Category>> GetAllCategoryByIncludeAsync()
+        {
+            return await _repository.GetAllCategoryByIncludeAsync();
+        }
+
+        public async Task<Category> GetAsync(Expression<Func<Category, bool>> expression)
 		{
 			return await _repository.GetAsync(expression);
 		}
 
-		public async Task<int> SaveAsync()
+        public async Task<Category> GetCategoryByIncludeAsync(int id)
+        {
+            return await _repository.GetCategoryByIncludeAsync(id);
+        }
+
+        public async Task<List<Category>> GetSomeCategoryByIncludeAsync(Expression<Func<Category, bool>> expression)
+        {
+            return await _repository.GetSomeCategoryByIncludeAsync(expression);
+        }
+
+        public async Task<int> SaveAsync()
 		{
 			return await _repository.SaveAsync();
 		}

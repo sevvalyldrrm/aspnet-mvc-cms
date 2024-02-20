@@ -16,7 +16,7 @@ namespace Cms.WebAPI.Controllers
         }
 
         [Authorize]
-        [HttpPut("update-profile")]
+        [HttpPut("UpdateProfile")]
         public async Task<IActionResult> UpdateProfile(UpdateProfileModel model)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -41,7 +41,7 @@ namespace Cms.WebAPI.Controllers
             return BadRequest(result.Errors);
         }
         [Authorize]
-        [HttpPost("change-password")]
+        [HttpPost("ChangePassword")]
         public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
         {
             var user = await _userManager.GetUserAsync(User);

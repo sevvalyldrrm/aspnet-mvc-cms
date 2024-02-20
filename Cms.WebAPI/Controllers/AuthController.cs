@@ -27,7 +27,7 @@ namespace Cms.WebAPI.Controllers
             _emailSender = emailSender;
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
             var user = await _userManager.FindByEmailAsync(loginModel.Email);
@@ -39,7 +39,7 @@ namespace Cms.WebAPI.Controllers
 
             return Unauthorized();
         }
-        [HttpPost("register")]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var user = new AppUser
@@ -62,7 +62,7 @@ namespace Cms.WebAPI.Controllers
 
             return BadRequest(result.Errors);
         }
-        [HttpGet("confirmemail")]
+        [HttpGet("ConfirmEmail")]
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             if (userId == null || token == null)
@@ -83,14 +83,14 @@ namespace Cms.WebAPI.Controllers
 
             return Ok("Email confirmed successfully");
         }
-        [HttpPost("logout")]
+        [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
         {
             // Kullanıcının oturumunu kapat
             await _signInManager.SignOutAsync();
             return Ok();
         }
-        [HttpPost("password-reset-request")]
+        [HttpPost("PasswordResetRequest")]
         public async Task<IActionResult> PasswordResetRequest([FromBody] PasswordResetRequestModel model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
@@ -112,7 +112,7 @@ namespace Cms.WebAPI.Controllers
 
             return Ok();
         }
-        [HttpPost("reset-password")]
+        [HttpPost("ResetPassword")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordModel model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);

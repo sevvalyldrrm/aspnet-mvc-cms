@@ -96,14 +96,14 @@ namespace Cms.Data.DataContext
 
 	);
 			modelBuilder.Entity<PostComment>().HasData(
-		new PostComment { Id = 1, PostId = 1, AppUserId = 1, Comment = "Harika bir yazı!", IsActive = true },
-		new PostComment { Id = 2, PostId = 1, AppUserId = 2, Comment = "Çok bilgilendirici, teşekkürler.", IsActive = true },
-		new PostComment { Id = 3, PostId = 1, AppUserId = 3, Comment = "Bu konuda daha fazla bilgi bekliyorum.", IsActive = true },
-		new PostComment { Id = 4, PostId = 2, AppUserId = 4, Comment = "Sporla ilgili bu tür yazıları seviyorum.", IsActive = true },
-		new PostComment { Id = 5, PostId = 2, AppUserId = 5, Comment = "Yazarın bakış açısını beğendim.", IsActive = true },
-		new PostComment { Id = 6, PostId = 2, AppUserId = 6, Comment = "Faydalı bir yazı olmuş.", IsActive = true },
-		new PostComment { Id = 7, PostId = 1, AppUserId = 7, Comment = "Teknolojinin geldiği nokta gerçekten şaşırtıcı.", IsActive = true },
-		new PostComment { Id = 8, PostId = 1, AppUserId = 8, Comment = "Yazar bu konuda çok iyi bilgi sahibi.", IsActive = true },
+		new PostComment { Id = 1, PostId = 1,  Comment = "Harika bir yazı!", IsActive = true },
+		new PostComment { Id = 2, PostId = 1,  Comment = "Çok bilgilendirici, teşekkürler.", IsActive = true },
+		new PostComment { Id = 3, PostId = 1,  Comment = "Bu konuda daha fazla bilgi bekliyorum.", IsActive = true },
+		new PostComment { Id = 4, PostId = 2,  Comment = "Sporla ilgili bu tür yazıları seviyorum.", IsActive = true },
+		new PostComment { Id = 5, PostId = 2,  Comment = "Yazarın bakış açısını beğendim.", IsActive = true },
+		new PostComment { Id = 6, PostId = 2,  Comment = "Faydalı bir yazı olmuş.", IsActive = true },
+		new PostComment { Id = 7, PostId = 1, Comment = "Teknolojinin geldiği nokta gerçekten şaşırtıcı.", IsActive = true },
+		new PostComment { Id = 8, PostId = 1, Comment = "Yazar bu konuda çok iyi bilgi sahibi.", IsActive = true },
 		new PostComment { Id = 9, PostId = 2, AppUserId = 9, Comment = "Spor haberlerini takip etmeyi seviyorum.", IsActive = true },
 		new PostComment { Id = 10, PostId = 3, AppUserId = 10, Comment = "Daha fazla spor içeriği görmek isterim.", IsActive = true }
 

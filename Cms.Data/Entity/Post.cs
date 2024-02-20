@@ -10,8 +10,8 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-    public class Post : BaseAuditEntity
-	{
+    public class Post : BaseEntity
+    {
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("AppUser")]

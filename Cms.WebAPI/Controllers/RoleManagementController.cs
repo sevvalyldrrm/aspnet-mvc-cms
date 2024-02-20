@@ -20,7 +20,7 @@ namespace Cms.WebAPI.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
-        [HttpPost("create")]
+        [HttpPost("CreateRole")]
         public async Task<IActionResult> CreateRole(string roleName)
         {
             if (string.IsNullOrWhiteSpace(roleName))
@@ -36,7 +36,7 @@ namespace Cms.WebAPI.Controllers
 
             return BadRequest(result.Errors);
         }
-        [HttpPost("assign")]
+        [HttpPost("AssignRoleToUser")]
         public async Task<IActionResult> AssignRoleToUser(UserRoleUpdateModel model)
         {
             var user = await _userManager.FindByIdAsync(model.UserId);
@@ -62,13 +62,13 @@ namespace Cms.WebAPI.Controllers
 
             return BadRequest(addResult.Errors);
         }
-        [HttpGet("list-roles")]
+        [HttpGet("ListRoles")]
         public IActionResult ListRoles()
         {
             var roles = _roleManager.Roles.ToList();
             return Ok(roles);
         }
-        [HttpDelete("delete-role/{roleName}")]
+        [HttpDelete("DeleteRole/{roleName}")]
         public async Task<IActionResult> DeleteRole(string roleName)
         {
             var role = await _roleManager.FindByNameAsync(roleName);
@@ -85,14 +85,14 @@ namespace Cms.WebAPI.Controllers
 
             return BadRequest(result.Errors);
         }
-        [HttpGet("list-users")]
+        [HttpGet("ListUser")]
         public IActionResult ListUser()
         {
             var users = _userManager.Users.ToList();
             if (users == null) return NotFound();
             return Ok(users);
         }
-        [HttpPost("removeRole")]
+        [HttpPost("RemoveRoleFromUser")]
         public async Task<IActionResult> RemoveRoleFromUser(UserRoleUpdateModel model)
         {
             var user = await _userManager.FindByIdAsync(model.UserId);

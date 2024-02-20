@@ -1,0 +1,8 @@
+# Randevu alacak kisiler icin bir Subscriber Entitysi acilabilir???
+
+#   Dependency Injection u unutmayalim!
+services.AddScoped<IAppointmentService, AppointmentService>(); vs vs
+
+#appuser approle service yapmaya ihtiyac var mi?
+
+#doctor ve patientlerin idleri string oldugu icin serviceleri tekrar yaz
