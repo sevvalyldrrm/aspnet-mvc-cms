@@ -13,6 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cms.Service", "Cms.Service\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{1025D5EB-8ACC-4340-B3E1-C155DBE19496}"
 	ProjectSection(SolutionItems) = preProject
+		BeniYap(Ogun).txt = BeniYap(Ogun).txt
 		Notlar uur.txt = Notlar uur.txt
 	EndProjectSection
 EndProject

@@ -1,6 +1,7 @@
 ﻿using Cms.Data.Entity.BaseEntites;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,19 +12,26 @@ namespace Cms.Data.Entity
     {
 		public string Speacialty { get; set; }
 
-		public ICollection<Patient> Patients { get; set; }
+        public ICollection<DoctorPatient> DoctorPatients { get; set; }
 
-		public Patient Patient { get; set; }
+		public int DepartmentId { get; set; }
 
-		public int CategoryId { get; set; }
+		public Department Department { get; set; }
 
-		public Category Category { get; set; }
-
+        [ForeignKey(nameof(Role.Id))]
+        public string RoleId {  get; set; }
 		public AppRole Role { get; set; }
 
-        public ICollection<Education> Educations { get; set; }
+		[ForeignKey(nameof(Introduction.Id))]
+		public int IntroductionId {  get; set; }
 
-		public Education Education { get; set; }
+        public Introduction Introduction { get; set; }
+        public virtual ICollection<WorkingHour> WorkingHours { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
+
+
+
+
 
     }
 }

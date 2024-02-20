@@ -14,7 +14,7 @@ namespace Cms.Data.Entity
 	{
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[ForeignKey("User")]
+		[ForeignKey("AppUser")]
 
 		public int UserId { get; set; }
 

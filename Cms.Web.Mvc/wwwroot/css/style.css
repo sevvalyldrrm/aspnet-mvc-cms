@@ -1251,18 +1251,18 @@ a:focus {
 .sidebar-widget.latest-post .media p {
   font-size: 12px;
 }
-.sidebar-widget.category ul li {
+.sidebar-widget.Department ul li {
   margin-bottom: 10px;
 }
-.sidebar-widget.category ul li a {
+.sidebar-widget.Department ul li a {
   color: #222;
   transition: all 0.3s ease;
 }
-.sidebar-widget.category ul li a:hover {
+.sidebar-widget.Department ul li a:hover {
   color: #223a66;
   padding-left: 5px;
 }
-.sidebar-widget.category ul li span {
+.sidebar-widget.Department ul li span {
   margin-left: 10px;
 }
 .sidebar-widget.tags a {

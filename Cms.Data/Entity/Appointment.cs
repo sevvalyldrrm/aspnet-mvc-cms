@@ -3,6 +3,7 @@ using Cms.Data.Entity.BaseEntites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using System.Linq;
@@ -13,22 +14,34 @@ namespace Cms.Data.Entity
 {
 	public class Appointment : BaseEntity
     {
-		[ForeignKey("CategoryId")]
-		public int CategoryId { get; set; }
+		[ForeignKey("DepartmentId")]
+		public int DepartmentId { get; set; }
 
-		public Category Category { get; set; }
+		public Department Department { get; set; }
 
 		[ForeignKey("DoctorId")]
-		public int DoctorId { get; set; }
+		public string DoctorId { get; set; }
 
 		public Doctor Doctor { get; set; }
 
-		public string Email { get; set;}
+        [ForeignKey("PatientId")]
+        public string PatientId { get; set; }
+
+        public Patient Patient { get; set; }
+
+        public string Email { get; set;}
 
 		public string FullName { get; set;}
 
 		public string Phone {  get; set;}
 
 		public string Message {  get; set;}
-	}
+
+        [Required]
+        public DateTime AppointmentDate { get; set; }
+
+        [ForeignKey("AvailabilityId")]
+        public int AvailabilityId { get; set; }
+        public Availability Availability { get; set; }
+    }
 }
