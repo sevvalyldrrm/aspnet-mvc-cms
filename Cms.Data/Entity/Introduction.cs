@@ -9,6 +9,7 @@ namespace Cms.Data.Entity
 {
     public class Introduction
     {
+        //Doctor Single
         public int Id { get; set; }
 
         [ForeignKey(nameof(Doctor.Id))]

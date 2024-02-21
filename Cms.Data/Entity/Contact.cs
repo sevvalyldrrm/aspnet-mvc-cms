@@ -9,6 +9,7 @@ namespace Cms.Data.Entity
 {
 	public class Contact : BaseAuditEntity
 	{
+		//Contact Us Sayfası
 		public string FullName { get; set; }
 		public string Email { get; set; }
 		public string Phone { get; set; }

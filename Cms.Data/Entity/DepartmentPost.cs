@@ -11,7 +11,7 @@ namespace Cms.Data.Entity
 {
 	public class DepartmentPost : BaseEntity
 	{
-
+		
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("Department")]
 		public int DepartmentId { get; set; }

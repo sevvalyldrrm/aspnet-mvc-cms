@@ -29,6 +29,12 @@ namespace Cms.Data.Entity
         public virtual ICollection<WorkingHour> WorkingHours { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }
 
+        public string DocFacebook { get; set; }
+        public string DocX { get; set; }
+        public string DocPinterest   { get; set; }
+        public string DocSkype { get; set; }        
+        public string DocLinkedIn { get; set; }
+
 
 
 
