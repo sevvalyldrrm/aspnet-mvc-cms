@@ -39,9 +39,6 @@ namespace Cms.Data.Entity
 
         [Required]
         public DateTime AppointmentDate { get; set; }
-
-        [ForeignKey("AvailabilityId")]
-        public int AvailabilityId { get; set; }
-        public Availability Availability { get; set; }
+        
     }
 }

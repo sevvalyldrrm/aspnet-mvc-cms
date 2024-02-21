@@ -23,6 +23,11 @@ namespace Cms.Data.Entity
 		public ICollection<DepartmentPost> DepartmentPosts { get; set; }
 
 		public Doctor Doctor { get; set; }
+		public ICollection<Doctor> Doctors { get; set; }
+		public DepartmentDetails DepartmentDetails { get; set; }
+		[ForeignKey(nameof(DepartmentDetails.Id))]
+		public int DepartmentDetailsId { get; set; }
+				
 
     }
 }

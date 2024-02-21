@@ -12,7 +12,7 @@ namespace Cms.Data.Entity
 {
     public class Post : BaseEntity
     {
-
+		//Blog Single
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("AppUser")]
 		public int AppUserId { get; set; }
@@ -29,5 +29,6 @@ namespace Cms.Data.Entity
 		public ICollection<DepartmentPost> DepartmentPosts { get; set; }
 		public ICollection<PostImage> PostImages { get; set; }
 		public ICollection<PostComment> PostComments { get; set; }
+		
 	}
 }

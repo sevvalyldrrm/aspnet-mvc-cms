@@ -9,6 +9,7 @@ namespace Cms.Data.Entity
 {
     public class Education
     {
+        //Doctor's Education
         public int Id { get; set; }
 
         public string Year { get; set; } 
