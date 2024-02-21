@@ -11,3 +11,10 @@ public async Task<List<Patient>> GetSomePatientsByIncludeAsync(Expression<Func<P
 		bu ikisinin arasindaki farki tolga hocaya soralim?
 
 		entity/page/working days /check box 
+
+		https://www.c-sharpcorner.com/article/working-with-checkboxlist-in-asp-net-core-mvc/ //co-pilot önerisi, bakýver
+
+		All Departments tarafý statik olarak yapýlýp href ile yönlendirme yapýlacak.
+
+
+		prop'larda virtual kullanma konusunu hocaya sor

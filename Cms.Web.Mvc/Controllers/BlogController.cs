@@ -2,7 +2,7 @@
 
 namespace Cms.Web.Mvc.Controllers
 {
-	public class PostController : Controller
+	public class BlogController : Controller
 	{
 		public IActionResult Index()
 		{

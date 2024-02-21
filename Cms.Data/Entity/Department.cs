@@ -17,17 +17,22 @@ namespace Cms.Data.Entity
 		[Required(ErrorMessage = "{0} boş geçilemez")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
         public string Name { get; set; }
+
 		[DisplayName("Açıklama")]
 		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
-		public string Description { get; set; }
-		public ICollection<DepartmentPost> DepartmentPosts { get; set; }
+		public string Description { get; set; } //DepartmentHTML'de kullanılacak
+
+		public ICollection<DepartmentBlog> DepartmentBlogs { get; set; }
 
 		public Doctor Doctor { get; set; }
 		public ICollection<Doctor> Doctors { get; set; }
-		public DepartmentDetails DepartmentDetails { get; set; }
+		public DepartmentDetail DepartmentDetails { get; set; }
+
 		[ForeignKey(nameof(DepartmentDetails.Id))]
 		public int DepartmentDetailsId { get; set; }
-				
+
+        public string? ImagePath { get; set; }
+
 
     }
 }

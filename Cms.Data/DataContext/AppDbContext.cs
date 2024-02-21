@@ -23,20 +23,22 @@ namespace Cms.Data.DataContext
 		
 		
 		public DbSet<Appointment> Appointments { get; set; }
+		public DbSet<Admin> Admins { get; set; }
+		public DbSet<AppointmentManager> AppointmentManagers { get; set; }
 		public DbSet<Contact> Contacts { get; set; }
-		public DbSet<Post> Posts { get; set; }
+		public DbSet<Blog> Blogs { get; set; }
 		public DbSet<Department> Departments { get; set; }
-		public DbSet<DepartmentPost> DepartmentPosts { get; set; }
-		public DbSet<PostImage> PostImages { get; set; }
-		public DbSet<PostComment> PostComments { get; set; }
-		public DbSet<Page> Pages { get; set; }
+		public DbSet<DepartmentBlog> DepartmentBlogs { get; set; }
+		public DbSet<DepartmentDetail> DepartmentDetails { get; set; }
+		public DbSet<BlogImage> BlogImages { get; set; }
+		public DbSet<BlogComment> BlogComments { get; set; }		
 		public DbSet<Doctor> Doctors { get; set; }
-		public DbSet<Patient> Patients { get; set; }
-		public DbSet<Setting> Settings { get; set; }
-		public DbSet<Setting> DoctorPatients { get; set; }
+		public DbSet<Patient> Patients { get; set; }		
+		public DbSet<DoctorPatient> DoctorPatients { get; set; }
 		public DbSet<Education> Educations { get; set; }
 		public DbSet<Introduction> Introductions { get; set; }
 		public DbSet<WorkingHour> WorkingHours { get; set; }
+		public DbSet<Surgery> Surgeries { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -54,17 +56,17 @@ namespace Cms.Data.DataContext
 		new Department { Id = 10, Name = "Teknoloji Yenilikleri", Description = "Teknolojideki son yenilikler ve icatlar" }
 
 	);
-			modelBuilder.Entity<Post>().HasData(
-		new Post { Id = 1, AppUserId = 1, Title = "Yeni Teknolojiler", Content = "Yeni teknolojiler hakkında bilgiler." },
-		new Post { Id = 2, AppUserId = 1, Title = "Spor Dünyası", Content = "Spor dünyasından son gelişmeler." },
-		new Post { Id = 3, AppUserId = 9, Title = "Sağlıklı Yaşam", Content = "Sağlıklı yaşam için ipuçları." },
-		new Post { Id = 4, AppUserId = 2, Title = "Eğitimde Yenilikler", Content = "Eğitim alanında yaşanan son gelişmeler." },
-		new Post { Id = 5, AppUserId = 8, Title = "Ekonomi Analizi", Content = "Dünya ekonomisine genel bir bakış." },
-		new Post { Id = 6, AppUserId = 3, Title = "Seyahat Rehberi", Content = "Keşfedilecek yeni yerler." },
-		new Post { Id = 7, AppUserId = 4, Title = "Sanatın Kalbi", Content = "Sanat dünyasından haberler." },
-		new Post { Id = 8, AppUserId = 5, Title = "Moda Dünyasında Neler Oluyor?", Content = "Moda dünyasının nabzı." },
-		new Post { Id = 9, AppUserId = 6, Title = "Gastronomi Keşifleri", Content = "Gastronomi dünyasından lezzetli haberler." },
-		new Post { Id = 10, AppUserId = 7, Title = "Teknolojik Gelişmeler", Content = "Teknolojideki son gelişmeler ve inovasyonlar." }
+			modelBuilder.Entity<Blog>().HasData(
+		new Blog { Id = 1, AppUserId = 1, Title = "Yeni Teknolojiler", Content = "Yeni teknolojiler hakkında bilgiler." },
+		new Blog { Id = 2, AppUserId = 1, Title = "Spor Dünyası", Content = "Spor dünyasından son gelişmeler." },
+		new Blog { Id = 3, AppUserId = 9, Title = "Sağlıklı Yaşam", Content = "Sağlıklı yaşam için ipuçları." },
+		new Blog { Id = 4, AppUserId = 2, Title = "Eğitimde Yenilikler", Content = "Eğitim alanında yaşanan son gelişmeler." },
+		new Blog { Id = 5, AppUserId = 8, Title = "Ekonomi Analizi", Content = "Dünya ekonomisine genel bir bakış." },
+		new Blog { Id = 6, AppUserId = 3, Title = "Seyahat Rehberi", Content = "Keşfedilecek yeni yerler." },
+		new Blog { Id = 7, AppUserId = 4, Title = "Sanatın Kalbi", Content = "Sanat dünyasından haberler." },
+		new Blog { Id = 8, AppUserId = 5, Title = "Moda Dünyasında Neler Oluyor?", Content = "Moda dünyasının nabzı." },
+		new Blog { Id = 9, AppUserId = 6, Title = "Gastronomi Keşifleri", Content = "Gastronomi dünyasından lezzetli haberler." },
+		new Blog { Id = 10, AppUserId = 7, Title = "Teknolojik Gelişmeler", Content = "Teknolojideki son gelişmeler ve inovasyonlar." }
 
 	);
 
@@ -100,66 +102,43 @@ namespace Cms.Data.DataContext
 		new AppUser { FullName = "User Nine", City = "Kayseri" }
 
 	);
-			modelBuilder.Entity<PostComment>().HasData(
-		new PostComment { Id = 1, PostId = 1,  Comment = "Harika bir yazı!", IsActive = true },
-		new PostComment { Id = 2, PostId = 1,  Comment = "Çok bilgilendirici, teşekkürler.", IsActive = true },
-		new PostComment { Id = 3, PostId = 1,  Comment = "Bu konuda daha fazla bilgi bekliyorum.", IsActive = true },
-		new PostComment { Id = 4, PostId = 2,  Comment = "Sporla ilgili bu tür yazıları seviyorum.", IsActive = true },
-		new PostComment { Id = 5, PostId = 2,  Comment = "Yazarın bakış açısını beğendim.", IsActive = true },
-		new PostComment { Id = 6, PostId = 2,  Comment = "Faydalı bir yazı olmuş.", IsActive = true },
-		new PostComment { Id = 7, PostId = 1,  Comment = "Teknolojinin geldiği nokta gerçekten şaşırtıcı.", IsActive = true },
-		new PostComment { Id = 8, PostId = 1,  Comment = "Yazar bu konuda çok iyi bilgi sahibi.", IsActive = true },
-		new PostComment { Id = 9, PostId = 2,  Comment = "Spor haberlerini takip etmeyi seviyorum.", IsActive = true },
-		new PostComment { Id = 10, PostId = 3, Comment = "Daha fazla spor içeriği görmek isterim.", IsActive = true }
+			modelBuilder.Entity<BlogComment>().HasData(
+		new BlogComment { Id = 1, BlogId = 1,  Comment = "Harika bir yazı!", IsActive = true },
+		new BlogComment { Id = 2, BlogId = 1,  Comment = "Çok bilgilendirici, teşekkürler.", IsActive = true },
+		new BlogComment { Id = 3, BlogId = 1,  Comment = "Bu konuda daha fazla bilgi bekliyorum.", IsActive = true },
+		new BlogComment { Id = 4, BlogId = 2,  Comment = "Sporla ilgili bu tür yazıları seviyorum.", IsActive = true },
+		new BlogComment { Id = 5, BlogId = 2,  Comment = "Yazarın bakış açısını beğendim.", IsActive = true },
+		new BlogComment { Id = 6, BlogId = 2,  Comment = "Faydalı bir yazı olmuş.", IsActive = true },
+		new BlogComment { Id = 7, BlogId = 1,  Comment = "Teknolojinin geldiği nokta gerçekten şaşırtıcı.", IsActive = true },
+		new BlogComment { Id = 8, BlogId = 1,  Comment = "Yazar bu konuda çok iyi bilgi sahibi.", IsActive = true },
+		new BlogComment { Id = 9, BlogId = 2,  Comment = "Spor haberlerini takip etmeyi seviyorum.", IsActive = true },
+		new BlogComment { Id = 10, BlogId = 3, Comment = "Daha fazla spor içeriği görmek isterim.", IsActive = true }
 
 	  );
-			modelBuilder.Entity<PostImage>().HasData(
-		new PostImage { Id = 2, PostId = 1, ImagePath = "images/post2.jpg" },
-		new PostImage { Id = 1, PostId = 1, ImagePath = "images/post1.jpg" },
-		new PostImage { Id = 3, PostId = 1, ImagePath = "images/post3.jpg" },
-		new PostImage { Id = 4, PostId = 2, ImagePath = "images/post4.jpg" },
-		new PostImage { Id = 5, PostId = 2, ImagePath = "images/post5.jpg" },
-		new PostImage { Id = 6, PostId = 2, ImagePath = "images/post6.jpg" },
-		new PostImage { Id = 7, PostId = 3, ImagePath = "images/post7.jpg" },
-		new PostImage { Id = 8, PostId = 3, ImagePath = "images/post8.jpg" },
-		new PostImage { Id = 9, PostId = 4, ImagePath = "images/post9.jpg" },
-		new PostImage { Id = 10, PostId = 5, ImagePath = "images/post10.jpg" }
+			modelBuilder.Entity<BlogImage>().HasData(
+		new BlogImage { Id = 2, BlogId = 1, ImagePath = "images/Blog2.jpg" },
+		new BlogImage { Id = 1, BlogId = 1, ImagePath = "images/Blog1.jpg" },
+		new BlogImage { Id = 3, BlogId = 1, ImagePath = "images/Blog3.jpg" },
+		new BlogImage { Id = 4, BlogId = 2, ImagePath = "images/Blog4.jpg" },
+		new BlogImage { Id = 5, BlogId = 2, ImagePath = "images/Blog5.jpg" },
+		new BlogImage { Id = 6, BlogId = 2, ImagePath = "images/Blog6.jpg" },
+		new BlogImage { Id = 7, BlogId = 3, ImagePath = "images/Blog7.jpg" },
+		new BlogImage { Id = 8, BlogId = 3, ImagePath = "images/Blog8.jpg" },
+		new BlogImage { Id = 9, BlogId = 4, ImagePath = "images/Blog9.jpg" },
+		new BlogImage { Id = 10, BlogId = 5, ImagePath = "images/Blog10.jpg" }
 	);
-			modelBuilder.Entity<Setting>().HasData(
-	   new Setting { Id = 1, UserId = 1, Name = "Tema", Value = "Koyu" },
-	   new Setting { Id = 2, UserId = 1, Name = "Dil", Value = "Türkçe" },
-	   new Setting { Id = 3, UserId = 2, Name = "Tema", Value = "Açık" },
-	   new Setting { Id = 4, UserId = 2, Name = "Dil", Value = "İngilizce" },
-	   new Setting { Id = 5, UserId = 3, Name = "Tema", Value = "Koyu" },
-	   new Setting { Id = 6, UserId = 3, Name = "Dil", Value = "Türkçe" },
-	   new Setting { Id = 7, UserId = 4, Name = "Tema", Value = "Açık" },
-	   new Setting { Id = 8, UserId = 4, Name = "Dil", Value = "İngilizce" },
-	   new Setting { Id = 9, UserId = 5, Name = "Tema", Value = "Koyu" },
-	   new Setting { Id = 10, UserId = 5, Name = "Dil", Value = "Türkçe" }
-   );
-			modelBuilder.Entity<Page>().HasData(
-	   new Page { Id = 1, Title = "Hakkımızda", Content = "Bu sayfa şirketimiz hakkında bilgiler içerir.", IsActive = true },
-	   new Page { Id = 2, Title = "Misyonumuz", Content = "Şirketimizin misyonunu bu sayfada bulabilirsiniz.", IsActive = true },
-	   new Page { Id = 3, Title = "Vizyonumuz", Content = "Gelecek vizyonumuz hakkında bilgi alın.", IsActive = true },
-	   new Page { Id = 4, Title = "Kariyer", Content = "Kariyer olanaklarımız hakkında bilgi alın.", IsActive = true },
-	   new Page { Id = 5, Title = "İletişim", Content = "Bizimle iletişim bilgileri.", IsActive = true },
-	   new Page { Id = 6, Title = "Basın Odası", Content = "Basın bültenlerimiz ve haberler.", IsActive = true },
-	   new Page { Id = 7, Title = "Yatırımcı İlişkileri", Content = "Yatırımcılar için önemli bilgiler.", IsActive = true },
-	   new Page { Id = 8, Title = "Sosyal Sorumluluk Projeleri", Content = "Topluma katkıda bulunduğumuz projeler.", IsActive = true },
-	   new Page { Id = 9, Title = "Sıkça Sorulan Sorular", Content = "Müşterilerimizin sık sorduğu sorular.", IsActive = true },
-	   new Page { Id = 10, Title = "Gizlilik Politikası", Content = "Gizlilik ve veri koruma politikamız.", IsActive = true }
-	);
-			modelBuilder.Entity<DepartmentPost>().HasData(
-		new DepartmentPost { Id = 1, DepartmentId = 1, PostId = 1 },
-		new DepartmentPost { Id = 2, DepartmentId = 1, PostId = 2 },
-		new DepartmentPost { Id = 3, DepartmentId = 1, PostId = 3 },
-		new DepartmentPost { Id = 4, DepartmentId = 2, PostId = 4 },
-		new DepartmentPost { Id = 5, DepartmentId = 2, PostId = 5 },
-		new DepartmentPost { Id = 6, DepartmentId = 3, PostId = 6 },
-		new DepartmentPost { Id = 7, DepartmentId = 3, PostId = 7 },
-		new DepartmentPost { Id = 8, DepartmentId = 4, PostId = 8 },
-		new DepartmentPost { Id = 9, DepartmentId = 4, PostId = 9 },
-		new DepartmentPost { Id = 10, DepartmentId = 5, PostId = 10 }
+						
+			modelBuilder.Entity<DepartmentBlog>().HasData(
+		new DepartmentBlog { Id = 1, DepartmentId = 1, BlogId = 1 },
+		new DepartmentBlog { Id = 2, DepartmentId = 1, BlogId = 2 },
+		new DepartmentBlog { Id = 3, DepartmentId = 1, BlogId = 3 },
+		new DepartmentBlog { Id = 4, DepartmentId = 2, BlogId = 4 },
+		new DepartmentBlog { Id = 5, DepartmentId = 2, BlogId = 5 },
+		new DepartmentBlog { Id = 6, DepartmentId = 3, BlogId = 6 },
+		new DepartmentBlog { Id = 7, DepartmentId = 3, BlogId = 7 },
+		new DepartmentBlog { Id = 8, DepartmentId = 4, BlogId = 8 },
+		new DepartmentBlog { Id = 9, DepartmentId = 4, BlogId = 9 },
+		new DepartmentBlog { Id = 10, DepartmentId = 5, BlogId = 10 }
 	);
 
 		}

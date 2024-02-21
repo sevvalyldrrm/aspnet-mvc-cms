@@ -10,23 +10,23 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class PostComment : BaseEntity
+	public class BlogComment : BaseEntity
     {
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[ForeignKey("Post")]
-		public int PostId { get; set; }
+		[ForeignKey("Blog")]
+		public int BlogId { get; set; }
 
-		public Post Post { get; set; }	
+		public Blog Blog { get; set; }	
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[DisplayName("Yorum")]
 		public string Comment { get; set; }
 
 		public bool IsActive { get; set; }
-		[ForeignKey(nameof(Patient.Id))]
-		public string PatientId { get; set; }
+		//[ForeignKey(nameof(Patient.Id))]
+		//public string PatientId { get; set; }
 
-		public Patient Patient { get; set; }
+		//public Patient Patient { get; set; }
 
 		public AppUser AppUser { get; set; }
 

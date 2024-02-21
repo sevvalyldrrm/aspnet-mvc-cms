@@ -15,9 +15,10 @@ namespace Cms.WebAPI.Controllers
         private readonly IAppointmentService _appointmentService;
         private readonly IAvailabilityService _availabilityService;
 
-        public AppointmentController(IAppointmentService appointmentService)
+        public AppointmentController(IAppointmentService appointmentService, IAvailabilityService availabilityService)
         {
             _appointmentService = appointmentService;
+            _availabilityService = availabilityService;
         }
 
         [HttpPost]
