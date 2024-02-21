@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Abstract
 {
-	public interface IPatientRepository : IRepository<Patient>
+	public interface IPatientRepository : IUserRepository<Patient>
 	{
 		Task<Patient> GetPatientByIncludeAsync(string id);
 

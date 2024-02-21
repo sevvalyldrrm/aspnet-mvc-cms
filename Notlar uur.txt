@@ -5,4 +5,4 @@ services.AddScoped<IAppointmentService, AppointmentService>(); vs vs
 
 #appuser approle service yapmaya ihtiyac var mi?
 
-#doctor ve patientlerin idleri string oldugu icin serviceleri tekrar yaz
+#doctor ve patientlerin idleri string oldugu icin serviceleri tekrar yaz/dal kismi yazildi service kismi eksik
