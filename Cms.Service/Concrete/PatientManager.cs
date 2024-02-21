@@ -30,7 +30,7 @@ namespace Cms.Service.Concrete
 			await _repository.DeleteAsync(entity);
 		}
 
-		public async Task<Patient> FindAsync(int id)
+		public async Task<Patient> FindAsync(string id)
 		{
 			return await _repository.FindAsync(id);
 		}

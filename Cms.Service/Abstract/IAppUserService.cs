@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Abstract
 {
-	public interface IAppUserService : IGenericService<AppUser>
+	public interface IAppUserService : IUserService<AppUser>
 	{
 	}
 }

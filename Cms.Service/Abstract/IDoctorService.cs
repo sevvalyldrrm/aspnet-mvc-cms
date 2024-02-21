@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Abstract
 {
-	public interface IDoctorService : IGenericService<Doctor>
+	public interface IDoctorService : IUserService<Doctor>
 	{
         Task<Doctor> GetDoctorByIncludeAsync(string id);
 

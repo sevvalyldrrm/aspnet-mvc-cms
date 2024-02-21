@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Abstract
 {
-	public interface IPatientService : IUserService<Patient>
+	public interface IAdminService : IUserService<Patient>
 	{
         Task<Patient> GetPatientByIncludeAsync(string id);
 
