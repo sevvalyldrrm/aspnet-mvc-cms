@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Concrete
 {
-	public class DoctorRepository : Repository<Doctor, AppDbContext>, IDoctorRepository
+	public class DoctorRepository : UserRepository<Doctor, AppDbContext>, IDoctorRepository
 	{
 		private readonly AppDbContext _context;
 		public async Task<List<Doctor>> GetAllDoctorsByIncludeAsync()
@@ -30,7 +30,16 @@ namespace Cms.Data.Concrete
 		{
 			return await _context.Doctors.Where(expression).Include(d => d.DoctorPatients).ThenInclude(dp => dp.Patient).Include(d => d.Role).Include(d => d.Department).ToListAsync();
 		}
-     
+        public async Task<IEnumerable<WorkingHour>> GetWorkingHoursByDoctorIdAsync(string doctorId)
+        {
+            return await _context.WorkingHours.Where(wh => wh.DoctorId == doctorId).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Appointment>> GetAppointmentsByDoctorIdAsync(string doctorId)
+        {
+            return await _context.Appointments.Where(a => a.DoctorId == doctorId).ToListAsync();
+        }
+
 
     }
 }

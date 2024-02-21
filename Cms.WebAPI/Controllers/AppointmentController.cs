@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 using Cms.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using Cms.WebAPI.DTOs;
+using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.WebAPI.Controllers
 {
@@ -10,17 +13,44 @@ namespace Cms.WebAPI.Controllers
     public class AppointmentController : ControllerBase
     {
         private readonly IAppointmentService _appointmentService;
+        private readonly IAvailabilityService _availabilityService;
 
         public AppointmentController(IAppointmentService appointmentService)
         {
             _appointmentService = appointmentService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateAppointment([FromBody] AppointmentDto appointmentDto)
+        {
+            var isAvailable = await _availabilityService.IsDoctorAvailableAsync(appointmentDto.DoctorId, appointmentDto.AppointmentDate, appointmentDto.AppointmentTime);
+
+            if (!isAvailable)
+            {
+                return BadRequest("Doktor bu tarih ve saatte müsait değil.");
+            }
+
+            var appointment = new Appointment
+            {
+                DoctorId = appointmentDto.DoctorId,
+                AppointmentDate = appointmentDto.AppointmentDate,
+                
+
+                // Diğer randevu alanları...
+            };
+
+            await _appointmentService.AddAsync(appointment);
+           
+            
+
+            return Ok(new { message = "Randevu başarıyla oluşturuldu.", appointmentId = appointment.Id });
+        }
+
         [HttpPost("AddAsync")]
         public async Task<IActionResult> AddAsync(Appointment entity)
         {
             await _appointmentService.AddAsync(entity);
-            return Ok();
+            return Ok(entity);
         }
 
         [HttpDelete("DeleteAsync/{id}")]

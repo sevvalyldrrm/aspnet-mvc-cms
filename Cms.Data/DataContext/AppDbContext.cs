@@ -36,7 +36,7 @@ namespace Cms.Data.DataContext
 		public DbSet<Setting> DoctorPatients { get; set; }
 		public DbSet<Education> Educations { get; set; }
 		public DbSet<Introduction> Introductions { get; set; }
-		public DbSet<Availability> Availabilities { get; set; }
+		public DbSet<WorkingHour> WorkingHours { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

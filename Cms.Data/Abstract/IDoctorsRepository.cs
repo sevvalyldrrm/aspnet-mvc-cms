@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Abstract
 {
-	public interface IDoctorRepository : IRepository<Doctor>
+	public interface IDoctorRepository : IUserRepository<Doctor>
 	{
 		Task<Doctor> GetDoctorByIncludeAsync(string id);
 
 		Task<List<Doctor>> GetAllDoctorsByIncludeAsync();
 
 		Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression);
-	}
+
+        Task<IEnumerable<WorkingHour>> GetWorkingHoursByDoctorIdAsync(string doctorId);
+        Task<IEnumerable<Appointment>> GetAppointmentsByDoctorIdAsync(string doctorId);
+    }
 }
