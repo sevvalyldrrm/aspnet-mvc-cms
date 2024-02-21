@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Abstract
 {
-	public interface IPostRepository : IRepository<Post>
+	public interface IBlogRepository : IRepository<Blog>
 	{
-		Task<Post> GetPostByIncludeAsync(int id);
+		Task<Blog> GetBlogByIncludeAsync(int id);
 
-		Task<List<Post>> GetAllPostsByIncludeAsync();
+		Task<List<Blog>> GetAllBlogsByIncludeAsync();
 
-		Task<List<Post>> GetSomePostsByIncludeAsync(Expression<Func<Post, bool>> expression);
+		Task<List<Blog>> GetSomeBlogsByIncludeAsync(Expression<Func<Blog, bool>> expression);
 	}
 }

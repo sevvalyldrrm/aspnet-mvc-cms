@@ -39,6 +39,10 @@ namespace Cms.Data.Entity
 
         [Required]
         public DateTime AppointmentDate { get; set; }
+
+		[ForeignKey(nameof(AppointmentManager.AppointmentManagerId))]
+		public int AppointmentManagerId { get; set; }
+		public AppointmentManager AppointmentManager { get; set; }
         
     }
 }

@@ -18,6 +18,8 @@ namespace Cms.Data.Entity
 		public AppRole Role { get; set; }
 
         public ICollection<DoctorPatient> DoctorPatients { get; set; }
+        public ICollection<Appointment> Appointments { get; set; }
+        public ICollection<Surgery> Surgeries { get; set; }
 
     }
 }

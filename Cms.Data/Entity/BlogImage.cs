@@ -10,24 +10,17 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class Page : BaseEntity
-    {
+	public class BlogImage : BaseEntity
+	{
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-        [StringLength(200, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
-        [DisplayName("Başlık")]
-		public string Title { get; set; }
+		[ForeignKey("Blog")]
+		public int BlogId { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[DisplayName("İçerik")]
-		public string Content { get; set; }
-
-		public bool IsActive { get; set; }
-
+        [StringLength(200, MinimumLength = 1, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
+        [DisplayName("Dosya yolu")]
+		public string ImagePath { get; set; }//burasi gerekli mi?appuser foto
 
 	}
-
-
-
-
 }

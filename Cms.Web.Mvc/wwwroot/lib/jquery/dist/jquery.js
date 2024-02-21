@@ -1415,7 +1415,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			// Support: Opera 10 - 11 only
-			// Opera 10-11 does not throw on post-comma invalid pseudos
+			// Opera 10-11 does not throw on Blog-comma invalid pseudos
 			el.querySelectorAll( "*,:x" );
 			rbuggyQSA.push( ",.*:" );
 		} );
@@ -2505,17 +2505,17 @@ function condense( unmatched, map, filter, context, xml ) {
 	return newUnmatched;
 }
 
-function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postSelector ) {
-	if ( postFilter && !postFilter[ expando ] ) {
-		postFilter = setMatcher( postFilter );
+function setMatcher( preFilter, selector, matcher, BlogFilter, BlogFinder, BlogSelector ) {
+	if ( BlogFilter && !BlogFilter[ expando ] ) {
+		BlogFilter = setMatcher( BlogFilter );
 	}
-	if ( postFinder && !postFinder[ expando ] ) {
-		postFinder = setMatcher( postFinder, postSelector );
+	if ( BlogFinder && !BlogFinder[ expando ] ) {
+		BlogFinder = setMatcher( BlogFinder, BlogSelector );
 	}
 	return markFunction( function( seed, results, context, xml ) {
 		var temp, i, elem,
 			preMap = [],
-			postMap = [],
+			BlogMap = [],
 			preexisting = results.length,
 
 			// Get initial elements from seed or context
@@ -2532,8 +2532,8 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 
 			matcherOut = matcher ?
 
-				// If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
-				postFinder || ( seed ? preFilter : preexisting || postFilter ) ?
+				// If we have a BlogFinder, or filtered seed, or non-seed BlogFilter or preexisting results,
+				BlogFinder || ( seed ? preFilter : preexisting || BlogFilter ) ?
 
 					// ...intermediate processing is necessary
 					[] :
@@ -2547,25 +2547,25 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			matcher( matcherIn, matcherOut, context, xml );
 		}
 
-		// Apply postFilter
-		if ( postFilter ) {
-			temp = condense( matcherOut, postMap );
-			postFilter( temp, [], context, xml );
+		// Apply BlogFilter
+		if ( BlogFilter ) {
+			temp = condense( matcherOut, BlogMap );
+			BlogFilter( temp, [], context, xml );
 
 			// Un-match failing elements by moving them back to matcherIn
 			i = temp.length;
 			while ( i-- ) {
 				if ( ( elem = temp[ i ] ) ) {
-					matcherOut[ postMap[ i ] ] = !( matcherIn[ postMap[ i ] ] = elem );
+					matcherOut[ BlogMap[ i ] ] = !( matcherIn[ BlogMap[ i ] ] = elem );
 				}
 			}
 		}
 
 		if ( seed ) {
-			if ( postFinder || preFilter ) {
-				if ( postFinder ) {
+			if ( BlogFinder || preFilter ) {
+				if ( BlogFinder ) {
 
-					// Get the final matcherOut by condensing this intermediate into postFinder contexts
+					// Get the final matcherOut by condensing this intermediate into BlogFinder contexts
 					temp = [];
 					i = matcherOut.length;
 					while ( i-- ) {
@@ -2575,29 +2575,29 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 							temp.push( ( matcherIn[ i ] = elem ) );
 						}
 					}
-					postFinder( null, ( matcherOut = [] ), temp, xml );
+					BlogFinder( null, ( matcherOut = [] ), temp, xml );
 				}
 
 				// Move matched elements from seed to results to keep them synchronized
 				i = matcherOut.length;
 				while ( i-- ) {
 					if ( ( elem = matcherOut[ i ] ) &&
-						( temp = postFinder ? indexOf( seed, elem ) : preMap[ i ] ) > -1 ) {
+						( temp = BlogFinder ? indexOf( seed, elem ) : preMap[ i ] ) > -1 ) {
 
 						seed[ temp ] = !( results[ temp ] = elem );
 					}
 				}
 			}
 
-		// Add elements to results, through postFinder if defined
+		// Add elements to results, through BlogFinder if defined
 		} else {
 			matcherOut = condense(
 				matcherOut === results ?
 					matcherOut.splice( preexisting, matcherOut.length ) :
 					matcherOut
 			);
-			if ( postFinder ) {
-				postFinder( null, results, matcherOut, xml );
+			if ( BlogFinder ) {
+				BlogFinder( null, results, matcherOut, xml );
 			} else {
 				push.apply( results, matcherOut );
 			}
@@ -3841,7 +3841,7 @@ jQuery.extend( {
 
 											// Support: Promises/A+ section 2.3.3.3.4.1
 											// https://promisesaplus.com/#point-61
-											// Ignore post-resolution exceptions
+											// Ignore Blog-resolution exceptions
 											if ( depth + 1 >= maxDepth ) {
 
 												// Only substitute handlers pass on context
@@ -5439,9 +5439,9 @@ jQuery.event = {
 			}
 		}
 
-		// Call the postDispatch hook for the mapped type
-		if ( special.postDispatch ) {
-			special.postDispatch.call( this, event );
+		// Call the BlogDispatch hook for the mapped type
+		if ( special.BlogDispatch ) {
+			special.BlogDispatch.call( this, event );
 		}
 
 		return event.result;
@@ -5594,7 +5594,7 @@ jQuery.event = {
 		},
 
 		beforeunload: {
-			postDispatch: function( event ) {
+			BlogDispatch: function( event ) {
 
 				// Support: Firefox 20+
 				// Firefox doesn't alert if the returnValue field is not set.
@@ -9690,7 +9690,7 @@ jQuery.extend( {
 				transport.send( requestHeaders, done );
 			} catch ( e ) {
 
-				// Rethrow post-completion exceptions
+				// Rethrow Blog-completion exceptions
 				if ( completed ) {
 					throw e;
 				}
@@ -9832,7 +9832,7 @@ jQuery.extend( {
 	}
 } );
 
-jQuery.each( [ "get", "post" ], function( _i, method ) {
+jQuery.each( [ "get", "Blog" ], function( _i, method ) {
 	jQuery[ method ] = function( url, data, callback, type ) {
 
 		// Shift arguments if data argument was omitted
@@ -10376,7 +10376,7 @@ jQuery.fn.load = function( url, params, callback ) {
 
 	// Otherwise, build a param string
 	} else if ( params && typeof params === "object" ) {
-		type = "POST";
+		type = "Blog";
 	}
 
 	// If we have elements to modify, make the request

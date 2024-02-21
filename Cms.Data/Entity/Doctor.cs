@@ -14,6 +14,7 @@ namespace Cms.Data.Entity
 
         public ICollection<DoctorPatient> DoctorPatients { get; set; }
 
+        [ForeignKey(nameof(Department.Id))]
 		public int DepartmentId { get; set; }
 
 		public Department Department { get; set; }
@@ -35,8 +36,7 @@ namespace Cms.Data.Entity
         public string DocSkype { get; set; }        
         public string DocLinkedIn { get; set; }
 
-
-
+        public string DocTitle { get; set; }
 
 
     }

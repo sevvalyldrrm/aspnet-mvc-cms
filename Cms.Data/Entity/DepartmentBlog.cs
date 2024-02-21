@@ -9,9 +9,9 @@ using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-	public class DepartmentPost : BaseEntity
+	public class DepartmentBlog : BaseEntity
 	{
-		
+		//Blog Single sayfasındaki "Categories" kısmı için yazıldı. Biz burada blog post'larının hangi departman tarafından yazıldığını belirtmek istiyoruz.
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("Department")]
 		public int DepartmentId { get; set; }
@@ -19,10 +19,10 @@ namespace Cms.Data.Entity
 		public Department Department { get; set; }
 
 		[Required(ErrorMessage = "{0} boş geçilemez")]
-		[ForeignKey("Post")]
-		public int PostId { get; set; }
+		[ForeignKey("Blog")]
+		public int BlogId { get; set; }
 
-		public Post Post {  get; set; }
+		public Blog Blog {  get; set; }
 
 		
 	}

@@ -14,14 +14,15 @@ namespace Cms.Data.Entity
 
         [ForeignKey(nameof(Doctor.Id))]
         public string DoctorId {  get; set; }
+        public Doctor Doctor { get; set; }
         public string Description { get; set; }
         public string MySkills { get; set; }
         public ICollection<string> ExpertisesArea { get; set; }
         public ICollection<Education> Educations { get; set; }
 
-        public string WorkingDays {  get; set; }//check-box
-        public string WorkingHours {  get; set; }
-      
+        
+        public WorkingHour WorkingHour { get; set; } //Make appointment'teki doktora uygun çalışma saatleri
+
 
         public Education Education { get; set; }
     }

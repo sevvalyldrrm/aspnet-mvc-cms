@@ -902,40 +902,40 @@ $.validator.addMethod( "phoneUS", function( phone_number, element ) {
 * 99.999-999
 * 99999999
 */
-$.validator.addMethod( "postalcodeBR", function( cep_value, element ) {
+$.validator.addMethod( "BlogalcodeBR", function( cep_value, element ) {
 	return this.optional( element ) || /^\d{2}.\d{3}-\d{3}?$|^\d{5}-?\d{3}?$/.test( cep_value );
 }, "Informe um CEP válido." );
 
 /**
- * Matches a valid Canadian Postal Code
+ * Matches a valid Canadian Blogal Code
  *
- * @example jQuery.validator.methods.postalCodeCA( "H0H 0H0", element )
+ * @example jQuery.validator.methods.BlogalCodeCA( "H0H 0H0", element )
  * @result true
  *
- * @example jQuery.validator.methods.postalCodeCA( "H0H0H0", element )
+ * @example jQuery.validator.methods.BlogalCodeCA( "H0H0H0", element )
  * @result false
  *
- * @name jQuery.validator.methods.postalCodeCA
+ * @name jQuery.validator.methods.BlogalCodeCA
  * @type Boolean
  * @cat Plugins/Validate/Methods
  */
-$.validator.addMethod( "postalCodeCA", function( value, element ) {
+$.validator.addMethod( "BlogalCodeCA", function( value, element ) {
 	return this.optional( element ) || /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ] *\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i.test( value );
-}, "Please specify a valid postal code" );
+}, "Please specify a valid Blogal code" );
 
-/* Matches Italian postcode (CAP) */
-$.validator.addMethod( "postalcodeIT", function( value, element ) {
+/* Matches Italian Blogcode (CAP) */
+$.validator.addMethod( "BlogalcodeIT", function( value, element ) {
 	return this.optional( element ) || /^\d{5}$/.test( value );
-}, "Please specify a valid postal code" );
+}, "Please specify a valid Blogal code" );
 
-$.validator.addMethod( "postalcodeNL", function( value, element ) {
+$.validator.addMethod( "BlogalcodeNL", function( value, element ) {
 	return this.optional( element ) || /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/.test( value );
-}, "Please specify a valid postal code" );
+}, "Please specify a valid Blogal code" );
 
-// Matches UK postcode. Does not match to UK Channel Islands that have their own postcodes (non standard UK)
-$.validator.addMethod( "postcodeUK", function( value, element ) {
+// Matches UK Blogcode. Does not match to UK Channel Islands that have their own Blogcodes (non standard UK)
+$.validator.addMethod( "BlogcodeUK", function( value, element ) {
 	return this.optional( element ) || /^((([A-PR-UWYZ][0-9])|([A-PR-UWYZ][0-9][0-9])|([A-PR-UWYZ][A-HK-Y][0-9])|([A-PR-UWYZ][A-HK-Y][0-9][0-9])|([A-PR-UWYZ][0-9][A-HJKSTUW])|([A-PR-UWYZ][A-HK-Y][0-9][ABEHMNPRVWXY]))\s?([0-9][ABD-HJLNP-UW-Z]{2})|(GIR)\s?(0AA))$/i.test( value );
-}, "Please specify a valid UK postcode" );
+}, "Please specify a valid UK Blogcode" );
 
 /*
  * Lets you say "at least X inputs that match selector Y must be filled."
@@ -1022,7 +1022,7 @@ $.validator.addMethod( "skip_or_fill_minimum", function( value, element, options
 /* Validates US States and/or Territories by @jdforsythe
  * Can be case insensitive or require capitalization - default is case insensitive
  * Can include US Territories or not - default does not
- * Can include US Military postal abbreviations (AA, AE, AP) - default does not
+ * Can include US Military Blogal abbreviations (AA, AE, AP) - default does not
  *
  * Note: "States" always includes DC (District of Colombia)
  *

@@ -5,7 +5,7 @@ namespace Cms.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostImageController : ControllerBase
+    public class BlogImageController : ControllerBase
     {
     }
 }

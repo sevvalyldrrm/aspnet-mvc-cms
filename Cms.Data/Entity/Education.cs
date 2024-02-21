@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cms.Data.Entity.BaseEntites;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,19 +8,17 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-    public class Education
+    public class Education : BaseEntity
     {
         //Doctor's Education
-        public int Id { get; set; }
+        public string Year { get; set; }
 
-        public string Year { get; set; } 
-        
-        public string University {  get; set; }
+        public string University { get; set; }
 
         public string Explanation { get; set; }
 
         [ForeignKey(nameof(Doctor.Id))]//calisiyor mu denemek lazim
-        public string DoctorId {  get; set; }
+        public string DoctorId { get; set; }
 
     }
 }

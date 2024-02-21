@@ -1048,7 +1048,7 @@ a:focus {
   font-size: 14px;
 }
 
-.posts-nav h6 {
+.Blogs-nav h6 {
   font-weight: 500;
 }
 
@@ -1078,14 +1078,14 @@ a:focus {
   height: auto;
 }
 
-.post.post-single {
+.Blog.Blog-single {
   border: none;
 }
-.post.post-single .post-thumb {
+.Blog.Blog-single .Blog-thumb {
   margin-top: 30px;
 }
 
-.post-sub-heading {
+.Blog-sub-heading {
   border-bottom: 1px solid #dedede;
   padding-bottom: 20px;
   letter-spacing: 2px;
@@ -1094,62 +1094,62 @@ a:focus {
   margin-bottom: 20px;
 }
 
-.post-social-share {
+.Blog-social-share {
   margin-bottom: 50px;
 }
 
-.post-comments {
+.Blog-comments {
   margin: 30px 0;
 }
-.post-comments .media {
+.Blog-comments .media {
   margin-top: 20px;
 }
-.post-comments .media > .pull-left {
+.Blog-comments .media > .pull-left {
   padding-right: 20px;
 }
-.post-comments .comment-author {
+.Blog-comments .comment-author {
   margin-top: 0;
   margin-bottom: 0px;
   font-weight: 500;
 }
-.post-comments .comment-author a {
+.Blog-comments .comment-author a {
   color: #223a66;
   font-size: 14px;
   text-transform: uppercase;
 }
-.post-comments time {
+.Blog-comments time {
   margin: 0 0 5px;
   display: inline-block;
   color: #808080;
   font-size: 12px;
 }
-.post-comments .comment-button {
+.Blog-comments .comment-button {
   color: #223a66;
   display: inline-block;
   margin-left: 5px;
   font-size: 12px;
 }
-.post-comments .comment-button i {
+.Blog-comments .comment-button i {
   margin-right: 5px;
   display: inline-block;
 }
-.post-comments .comment-button:hover {
+.Blog-comments .comment-button:hover {
   color: #223a66;
 }
 
-.post-excerpt {
+.Blog-excerpt {
   margin-bottom: 60px;
 }
-.post-excerpt h3 a {
+.Blog-excerpt h3 a {
   color: #000;
 }
-.post-excerpt p {
+.Blog-excerpt p {
   margin: 0 0 30px;
 }
-.post-excerpt blockquote.quote-post {
+.Blog-excerpt blockquote.quote-Blog {
   margin: 20px 0;
 }
-.post-excerpt blockquote.quote-post p {
+.Blog-excerpt blockquote.quote-Blog p {
   line-height: 30px;
   font-size: 20px;
   color: #223a66;
@@ -1163,11 +1163,11 @@ a:focus {
   margin-top: 40px;
 }
 
-.post-author {
+.Blog-author {
   margin-right: 20px;
 }
 
-.post-author > img {
+.Blog-author > img {
   border: 1px solid #dedede;
   max-width: 120px;
   padding: 5px;
@@ -1241,14 +1241,14 @@ a:focus {
   height: 3px;
   background: #e12454;
 }
-.sidebar-widget.latest-post .media img {
+.sidebar-widget.latest-Blog .media img {
   border-radius: 7px;
 }
-.sidebar-widget.latest-post .media h6 {
+.sidebar-widget.latest-Blog .media h6 {
   font-weight: 500;
   line-height: 1.4;
 }
-.sidebar-widget.latest-post .media p {
+.sidebar-widget.latest-Blog .media p {
   font-size: 12px;
 }
 .sidebar-widget.Department ul li {

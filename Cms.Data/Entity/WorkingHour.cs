@@ -10,6 +10,7 @@ namespace Cms.Data.Entity
 {
     public class WorkingHour
     {
+        //Doktorun çalışma saatlerini belirleyen tablo
         [Key]
         public int WorkingHourId { get; set; }
 
@@ -28,7 +29,7 @@ namespace Cms.Data.Entity
         [Required]
         public TimeSpan EndTime { get; set; }
 
-        // Bu özellik, doktorun belirli bir gün çalışıp çalışmadığını gösterir
-        public bool IsOffDay { get; set; }
+        
+        public bool IsOffDay { get; set; } // Doktorun belirli bir gün çalışıp çalışmadığını gösterme alanı
     }
 }
