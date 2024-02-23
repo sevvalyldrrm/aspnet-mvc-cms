@@ -22,17 +22,17 @@ namespace Cms.Data.Concrete
 
         public async Task<List<DepartmentDetail>> GetAllDepartmentDetailsByIncludeAsync()
         {
-            return await _context.DepartmentDetails.Include(x => x.DepartmentFeatures).Include(x => x.Department).AsNoTracking().ToListAsync();
+            return await _context.DepartmentDetails.Include(x => x.DepartmentFeatures).Include(x => x.Departments).AsNoTracking().ToListAsync();
         }
 
         public async Task<DepartmentDetail> GetDepartmentDetailByIncludeAsync(int id)
         {
-            return await _context.DepartmentDetails.Include(x => x.DepartmentFeatures).Include(x => x.Department).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.DepartmentDetails.Include(x => x.DepartmentFeatures).Include(x => x.Departments).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<List<DepartmentDetail>> GetSomeDepartmentDetailsByIncludeAsync(Expression<Func<DepartmentDetail, bool>> expression)
         {
-            return await _context.DepartmentDetails.Include(x => x.DepartmentFeatures).Include(x => x.Department).AsNoTracking().Where(expression).ToListAsync();
+            return await _context.DepartmentDetails.Include(x => x.DepartmentFeatures).Include(x => x.Departments).AsNoTracking().Where(expression).ToListAsync();
         }
     }
 }

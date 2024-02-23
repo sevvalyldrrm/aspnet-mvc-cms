@@ -18,4 +18,4 @@ namespace Cms.Data.Concrete
             _context = context;
         }
     }
-    ]
+}
