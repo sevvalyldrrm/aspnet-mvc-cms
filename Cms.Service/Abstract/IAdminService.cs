@@ -9,12 +9,8 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Abstract
 {
-	public interface IAdminService : IUserService<Patient>
+	public interface IAdminService : IUserService<Admin>
 	{
-        Task<Patient> GetPatientByIncludeAsync(string id);
-
-        Task<List<Patient>> GetAllPatientsByIncludeAsync();
-
-        Task<List<Patient>> GetSomePatientsByIncludeAsync(Expression<Func<Patient, bool>> expression);
+       
     }
 }

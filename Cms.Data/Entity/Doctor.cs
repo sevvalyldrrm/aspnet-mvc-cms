@@ -27,6 +27,8 @@ namespace Cms.Data.Entity
 		public int IntroductionId {  get; set; }
 
         public Introduction Introduction { get; set; }
+
+        public ICollection<SurgeryDoctor> SurgeryDoctors { get; set; }
         public virtual ICollection<WorkingHour> WorkingHours { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }
 

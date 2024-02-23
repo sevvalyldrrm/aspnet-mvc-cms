@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-	public class Contact : BaseAuditEntity
+	public class Contact : BaseEntity
 	{
 		//Contact Us Sayfası
 		public string FullName { get; set; }

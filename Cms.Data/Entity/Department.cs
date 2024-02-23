@@ -22,17 +22,15 @@ namespace Cms.Data.Entity
 		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
 		public string Description { get; set; } //DepartmentHTML'de kullanılacak
 
-		public ICollection<DepartmentBlog> DepartmentBlogs { get; set; }
-
-		public Doctor Doctor { get; set; }
-		public ICollection<Doctor> Doctors { get; set; }
-		public DepartmentDetail DepartmentDetails { get; set; }
-
 		[ForeignKey(nameof(DepartmentDetails.Id))]
 		public int DepartmentDetailsId { get; set; }
-
+        public DepartmentDetail DepartmentDetails { get; set; }
         public string? ImagePath { get; set; }
 
+        public ICollection<DepartmentBlog> DepartmentBlogs { get; set; }
 
+        public ICollection<Doctor> Doctors { get; set; }
+
+      
     }
 }

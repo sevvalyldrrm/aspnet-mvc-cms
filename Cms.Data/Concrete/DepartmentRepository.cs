@@ -15,19 +15,24 @@ namespace Cms.Data.Concrete
 	{
 		private readonly AppDbContext _context;
 
-		public async Task<List<Department>> GetAllDepartmentByIncludeAsync()
+        public DepartmentRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Department>> GetAllDepartmentByIncludeAsync()
 		{
-			return await _context.Departments.Include(d => d.Doctor).ToListAsync();
+			return await _context.Departments.Include(d => d.DepartmentDetails).Include(d => d.DepartmentBlogs).Include(d => d.Doctors).ToListAsync();
 		}
 
 		public async Task<Department> GetDepartmentByIncludeAsync(int id)
 		{
-			return await _context.Departments.Include(d => d.Doctor).FirstOrDefaultAsync(d => d.Id == id);
+			return await _context.Departments.Include(d => d.DepartmentDetails).Include(d => d.DepartmentBlogs).Include(d => d.Doctors).FirstOrDefaultAsync(d => d.Id == id);
 		}
 
 		public Task<List<Department>> GetSomeDepartmentByIncludeAsync(Expression<Func<Department, bool>> expression)
 		{
-			return _context.Departments.Where(expression).Include(d => d.Doctor).ToListAsync();
+			return _context.Departments.Where(expression).Include(d => d.DepartmentDetails).Include(d => d.DepartmentBlogs).Include(d => d.Doctors).ToListAsync();
 		}
 
 	}

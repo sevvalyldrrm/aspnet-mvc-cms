@@ -16,5 +16,10 @@ namespace Cms.Data.Abstract
 		Task<List<Patient>> GetAllPatientsByIncludeAsync();
 
 		Task<List<Patient>> GetSomePatientsByIncludeAsync(Expression<Func<Patient, bool>> expression);
-	}
+
+		Task<List<Patient>> GetAllAppointmentsofPatientByIncludeAsync();
+
+		Task<List<Patient>> GetAllSurgeriesofPatientByIncludeAsync();
+
+    }
 }

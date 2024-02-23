@@ -14,19 +14,25 @@ namespace Cms.Data.Concrete
 	public class BlogRepository : Repository<Blog, AppDbContext>, IBlogRepository
 	{
 		private readonly AppDbContext _context;
-		public async Task<List<Blog>> GetAllBlogsByIncludeAsync()
+
+        public BlogRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Blog>> GetAllBlogsByIncludeAsync()
 		{
-			return await _context.Blogs.Include(x => x.BlogComments).AsNoTracking().ToListAsync();
+			return await _context.Blogs.Include(x => x.AppUser).Include(x => x.BlogComments).Include(x => x.BlogImages).Include(x => x.DepartmentBlogs).AsNoTracking().ToListAsync();
 		}
 
 		public async Task<Blog> GetBlogByIncludeAsync(int id)
 		{
-			return await _context.Blogs.Include(x => x.BlogComments).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+			return await _context.Blogs.Include(x => x.AppUser).Include(x => x.BlogComments).Include(x => x.BlogImages).Include(x => x.DepartmentBlogs).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
 		}
 
 		public async Task<List<Blog>> GetSomeBlogsByIncludeAsync(Expression<Func<Blog, bool>> expression)
 		{
-			return await _context.Blogs.Include(x => x.BlogComments).AsNoTracking().Where(expression).ToListAsync();
+			return await _context.Blogs.Include(x => x.AppUser).Include(x => x.BlogComments).Include(x => x.BlogImages).Include(x => x.DepartmentBlogs).AsNoTracking().Where(expression).ToListAsync();
 		}
 	}
 }

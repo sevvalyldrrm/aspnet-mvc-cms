@@ -17,12 +17,14 @@ namespace Cms.Data.Entity
         [ForeignKey(nameof(Department.Id))]
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
+        public ICollection<SurgeryDoctor> SurgeryDoctors { get; set; }
 
-        [ForeignKey(nameof(Doctor.Id))]
-        public string DoctorId { get; set; }
-        public ICollection<Doctor> Doctors { get; set; }
         public DateTime SurgeryDate { get; set; }
 
-
+        //public Surgery()
+        //{
+        //    SurgeryDoctors = new HashSet<SurgeryDoctor>();
+        //}
+        //hocaya sor
     }
 }

@@ -5,14 +5,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cms.Data.Entity.BaseEntites;
 
 namespace Cms.Data.Entity
 {
-    public class WorkingHour
+    public class WorkingHour:BaseEntity
     {
         //Doktorun çalışma saatlerini belirleyen tablo
-        [Key]
-        public int WorkingHourId { get; set; }
+       
 
         [Required]
         [ForeignKey("Doctor")]

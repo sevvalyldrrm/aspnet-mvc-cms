@@ -14,7 +14,13 @@ namespace Cms.Data.Concrete
 	public class DoctorRepository : UserRepository<Doctor, AppDbContext>, IDoctorRepository
 	{
 		private readonly AppDbContext _context;
-		public async Task<List<Doctor>> GetAllDoctorsByIncludeAsync()
+
+        public DoctorRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Doctor>> GetAllDoctorsByIncludeAsync()
 		{
 			return await _context.Doctors.Include(d => d.DoctorPatients).ThenInclude(dp => dp.Patient).Include(d => d.Department).Include(d => d.Role).ToListAsync();
 		}

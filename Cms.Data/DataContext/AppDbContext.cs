@@ -39,6 +39,7 @@ namespace Cms.Data.DataContext
 		public DbSet<Introduction> Introductions { get; set; }
 		public DbSet<WorkingHour> WorkingHours { get; set; }
 		public DbSet<Surgery> Surgeries { get; set; }
+		public DbSet<SurgeryDoctor> SurgeryDoctors { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
