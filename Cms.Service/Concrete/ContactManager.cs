@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,46 +10,13 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class ContactManager : IContactService
+    public class ContactManager : GenericManager<Contact>, IContactService
     {
-        public Task AddAsync(Contact entity)
+       private readonly IContactRepository _repository;
+        public ContactManager(IContactRepository repository) : base(repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task DeleteAsync(Contact entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Contact> FindAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Contact>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Contact>> GetAllAsync(Expression<Func<Contact, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Contact> GetAsync(Expression<Func<Contact, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(Contact entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

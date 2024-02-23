@@ -13,34 +13,35 @@ namespace Cms.Service.Concrete
 {
     public class DoctorManager : UserManager<Doctor>, IDoctorService
     {
-        public DoctorManager(IUserRepository<Appointment> repository) : base(repository)
+        private readonly IDoctorRepository _repository;
+        public DoctorManager(IDoctorRepository repository) : base(repository)
         {
-           
+            _repository = repository;
         }
 
-        public Task<List<Doctor>> GetAllDoctorsByIncludeAsync()
+        public async Task<List<Doctor>> GetAllDoctorsByIncludeAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllDoctorsByIncludeAsync();
         }
 
-        public Task<IEnumerable<Appointment>> GetAppointmentsByDoctorIdAsync(string doctorId)
+        public async Task<IEnumerable<Appointment>> GetAppointmentsByDoctorIdAsync(string doctorId)
         {
-            throw new NotImplementedException();
+            return await _repository.GetAppointmentsByDoctorIdAsync(doctorId);
         }
 
-        public Task<Doctor> GetDoctorByIncludeAsync(string id)
+        public async Task<Doctor> GetDoctorByIncludeAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetDoctorByIncludeAsync(id);
         }
 
-        public Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression)
+        public async Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _repository.GetSomeDoctorsByIncludeAsync(expression);
         }
 
-        public Task<IEnumerable<WorkingHour>> GetWorkingHoursByDoctorIdAsync(string doctorId)
+        public async Task<IEnumerable<WorkingHour>> GetWorkingHoursByDoctorIdAsync(string doctorId)
         {
-            throw new NotImplementedException();
+            return await _repository.GetWorkingHoursByDoctorIdAsync(doctorId);
         }
     }
 }

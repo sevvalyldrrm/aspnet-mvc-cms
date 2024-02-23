@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,61 +10,27 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class DepartmanDetailManager : IDepartmentDetailService
+    public class DepartmanDetailManager : GenericManager<DepartmentDetail>,IDepartmentDetailService
     {
-        public Task AddAsync(DepartmentDetail entity)
+       private readonly IDepartmentDetailRepository _repository;
+        public DepartmanDetailManager(IDepartmentDetailRepository repository) : base(repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task DeleteAsync(DepartmentDetail entity)
+        public async Task<List<DepartmentDetail>> GetAllDepartmentDetailsByIncludeAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllDepartmentDetailsByIncludeAsync();
         }
 
-        public Task<DepartmentDetail> FindAsync(int id)
+        public async Task<DepartmentDetail> GetDepartmentDetailByIncludeAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetDepartmentDetailByIncludeAsync(id);
         }
 
-        public Task<List<DepartmentDetail>> GetAllAsync()
+        public async Task<List<DepartmentDetail>> GetSomeDepartmentDetailsByIncludeAsync(Expression<Func<DepartmentDetail, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<DepartmentDetail>> GetAllAsync(Expression<Func<DepartmentDetail, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<DepartmentDetail>> GetAllDepartmentDetailsByIncludeAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DepartmentDetail> GetAsync(Expression<Func<DepartmentDetail, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DepartmentDetail> GetDepartmentDetailByIncludeAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<DepartmentDetail>> GetSomeDepartmentDetailsByIncludeAsync(Expression<Func<DepartmentDetail, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(DepartmentDetail entity)
-        {
-            throw new NotImplementedException();
+            return await _repository.GetSomeDepartmentDetailsByIncludeAsync(expression);
         }
     }
 }

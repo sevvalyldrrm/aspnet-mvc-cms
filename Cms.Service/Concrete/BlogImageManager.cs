@@ -12,23 +12,25 @@ namespace Cms.Service.Concrete
 {
     public class BlogImageManager : GenericManager<BlogImage>, IBlogImageService
     {
-        public BlogImageManager(IRepository<BlogImage> repository) : base(repository)
+        private readonly IBlogImageRepository _repository;
+        public BlogImageManager(IBlogImageRepository repository) : base(repository)
         {
+            _repository=repository;
         }
 
-        public Task<List<BlogImage>> GetAllBlogImagesByIncludeAsync()
+        public async Task<List<BlogImage>> GetAllBlogImagesByIncludeAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllBlogImagesByIncludeAsync();
         }
 
-        public Task<BlogImage> GetBlogImageByIncludeAsync(int id)
+        public async Task<BlogImage> GetBlogImageByIncludeAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetBlogImageByIncludeAsync(id);
         }
 
-        public Task<List<BlogImage>> GetSomeBlogImagesByIncludeAsync(Expression<Func<BlogImage, bool>> expression)
+        public async Task<List<BlogImage>> GetSomeBlogImagesByIncludeAsync(Expression<Func<BlogImage, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _repository.GetSomeBlogImagesByIncludeAsync(expression);
         }
     }
 }

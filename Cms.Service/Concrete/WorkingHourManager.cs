@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,27 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public interface WorkingHourManager:IGenericService<WorkingHour>
+    public class WorkingHourManager:GenericManager<WorkingHour>,IWorkingHourService
     {
-        Task<WorkingHour> GetWorkingHourByIncludeAsync(int id);
+        private readonly IWorkingHourRepository _repository;
+        public WorkingHourManager(IWorkingHourRepository repository) : base(repository)
+        {
+            _repository = repository;
+        }
 
-        Task<List<WorkingHour>> GetAllWorkingHoursByIncludeAsync();
+        public async Task<List<WorkingHour>> GetAllWorkingHoursByIncludeAsync()
+        {
+            return await _repository.GetAllWorkingHoursByIncludeAsync();
+        }
 
-        Task<List<WorkingHour>> GetSomeWorkingHoursByIncludeAsync(Expression<Func<WorkingHour, bool>> expression);
+        public async Task<List<WorkingHour>> GetSomeWorkingHoursByIncludeAsync(Expression<Func<WorkingHour, bool>> expression)
+        {
+            return await _repository.GetSomeWorkingHoursByIncludeAsync(expression);
+        }
+
+        public async Task<WorkingHour> GetWorkingHourByIncludeAsync(int id)
+        {
+            return await _repository.GetWorkingHourByIncludeAsync(id);
+        }
     }
 }
