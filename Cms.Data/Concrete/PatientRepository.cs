@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Concrete
 {
-	public class PatientRepository : Repository<Patient, AppDbContext>, IPatientRepository
+	public class PatientRepository : UserRepository<Patient, AppDbContext>, IPatientRepository
 	{
 		private readonly AppDbContext _context;
 
-		public async Task<List<Patient>> GetAllPatientsByIncludeAsync()
+        public PatientRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Patient>> GetAllPatientsByIncludeAsync()
 		{
 			return await _context.Patients.Include(p => p.DoctorPatients).ThenInclude(dp => dp.Doctor).Include(d => d.Role).ToListAsync();
 		}
@@ -29,5 +34,16 @@ namespace Cms.Data.Concrete
 		{
 			return await _context.Patients.Where(expression).Include(d => d.Role).Include(p => p.DoctorPatients).ThenInclude(dp => dp.Doctor).ToListAsync();
 		}
-	}
+        public async Task<List<Patient>> GetAllAppointmentsofPatientByIncludeAsync()
+        {
+            return await _context.Patients.Include(d => d.Appointments).Include(p => p.DoctorPatients).ThenInclude(dp => dp.Doctor).ToListAsync();
+        }
+
+        public async Task<List<Patient>> GetAllSurgeriesofPatientByIncludeAsync()
+        {
+            return await _context.Patients.Include(p => p.Surgeries).Include(p => p.DoctorPatients).ThenInclude(dp => dp.Doctor).ToListAsync();
+        }
+        
+
+    }
 }

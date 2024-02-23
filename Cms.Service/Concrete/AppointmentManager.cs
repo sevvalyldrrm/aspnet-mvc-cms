@@ -11,68 +11,25 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-	public class AppointmentManager : IAppointmentService
-	{
-		private readonly IAppointmentRepository _repository;
-
-        public AppointmentManager(IAppointmentRepository repository)
+	public class AppointmentManager : GenericManager<Appointment>, IAppointmentService
+    {
+        public AppointmentManager(IRepository<Appointment> repository) : base(repository)
         {
-            _repository = repository;
         }
 
-		public async Task AddAsync(Appointment entity)
-		{
-			await _repository.AddAsync(entity);
-		}
-
-		public async Task DeleteAsync(Appointment entity)
-		{
-			await _repository.DeleteAsync(entity);	
-		}
-
-		public async Task<Appointment> FindAsync(int id)
-		{
-			return await _repository.FindAsync(id);
-		}
-
-		public async Task<List<Appointment>> GetAllAsync()
-		{
-			return await _repository.GetAllAsync();
-		}
-
-		public async Task<List<Appointment>> GetAllAsync(Expression<Func<Appointment, bool>> expression)
-		{
-			return await _repository.GetAllAsync(expression);
-		}
-
-		public async Task<Appointment> GetAsync(Expression<Func<Appointment, bool>> expression)
-		{
-			return await _repository.GetAsync(expression);
-		}
-
-		public async Task<int> SaveAsync()
-		{
-			return await _repository.SaveAsync();
-		}
-
-		public async Task UpdateAsync(Appointment entity)
-		{
-			await _repository.UpdateAsync(entity);
-		}
-        public async Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
+        public Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
         {
-			return await _repository.GetAllAppointmentsByIncludeAsync();
-
+            throw new NotImplementedException();
         }
 
-        public async Task<Appointment> GetAppointmentByIncludeAsync(int id)
+        public Task<Appointment> GetAppointmentByIncludeAsync(int id)
         {
-			return await _repository.GetAppointmentByIncludeAsync(id);
+            throw new NotImplementedException();
         }
 
-        public async Task<List<Appointment>> GetSomeAppointmentsByIncludeAsync(Expression<Func<Appointment, bool>> expression)
+        public Task<List<Appointment>> GetSomeAppointmentsByIncludeAsync(Expression<Func<Appointment, bool>> expression)
         {
-			return await _repository.GetSomeAppointmentsByIncludeAsync(expression);
+            throw new NotImplementedException();
         }
     }
 }

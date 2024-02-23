@@ -17,6 +17,8 @@ namespace Cms.Data.Entity
 		[ForeignKey("AppUser")]
 		public int AppUserId { get; set; }
 
+		public AppUser AppUser { get; set; }
+
 		[Required(ErrorMessage = "{0} boş geçilemez")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
         [DisplayName("Başlık")]

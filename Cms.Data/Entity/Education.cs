@@ -17,8 +17,10 @@ namespace Cms.Data.Entity
 
         public string Explanation { get; set; }
 
-        [ForeignKey(nameof(Doctor.Id))]//calisiyor mu denemek lazim
+        [ForeignKey(nameof(Doctor.Id))]
         public string DoctorId { get; set; }
+
+        public Doctor Doctor { get; set; }
 
     }
 }

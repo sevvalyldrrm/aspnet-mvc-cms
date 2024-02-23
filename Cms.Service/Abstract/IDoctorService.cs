@@ -16,5 +16,8 @@ namespace Cms.Service.Abstract
         Task<List<Doctor>> GetAllDoctorsByIncludeAsync();
 
         Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression);
+
+        Task<IEnumerable<WorkingHour>> GetWorkingHoursByDoctorIdAsync(string doctorId);
+        Task<IEnumerable<Appointment>> GetAppointmentsByDoctorIdAsync(string doctorId);
     }
 }

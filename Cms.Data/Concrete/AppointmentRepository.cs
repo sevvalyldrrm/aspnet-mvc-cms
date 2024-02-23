@@ -16,20 +16,25 @@ namespace Cms.Data.Concrete
 
 		private readonly AppDbContext _context;
 
-		public async Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
+        public AppointmentRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
 		{
-			return await _context.Appointments.Include(a => a.Doctor).Include(a => a.Department).ToListAsync();
+			return await _context.Appointments.Include(a => a.Doctor).Include(a => a.Department).Include(a => a.Patient).Include(a => a.AppointmentManager).ToListAsync();
 
 		}
 
 		public async Task<Appointment> GetAppointmentByIncludeAsync(int id)
 		{
-			return await _context.Appointments.Include(a => a.Doctor).Include(a => a.Department).FirstOrDefaultAsync(a => a.Id == id);
+			return await _context.Appointments.Include(a => a.Doctor).Include(a => a.Department).Include(a => a.Patient).Include(a => a.AppointmentManager).FirstOrDefaultAsync(a => a.Id == id);
 		}
 
 		public async Task<List<Appointment>> GetSomeAppointmentsByIncludeAsync(Expression<Func<Appointment, bool>> expression)
 		{
-			return await _context.Appointments.Where(expression).Include(a => a.Doctor).Include(a => a.Department).ToListAsync();
+			return await _context.Appointments.Where(expression).Include(a => a.Doctor).Include(a => a.Department).Include(a => a.Patient).Include(a => a.AppointmentManager).ToListAsync();
 		}
 	}
 }

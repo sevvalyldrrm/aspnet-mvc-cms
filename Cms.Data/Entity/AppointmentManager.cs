@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cms.Data.Entity.BaseEntites;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Cms.Data.Entity
 {
-    public class AppointmentManager
+    public class AppointmentManager : BaseEntity
     {
-        public int AppointmentManagerId { get; set; }
-
+        
         [ForeignKey(nameof(Doctor.Id))]
         public string DoctorId { get; set; }
         public Doctor Doctor { get; set; }

@@ -17,13 +17,13 @@ namespace Cms.Data.Entity
         public Doctor Doctor { get; set; }
         public string Description { get; set; }
         public string MySkills { get; set; }
-        public ICollection<string> ExpertisesArea { get; set; }
+        public ICollection<string> ExpertisesAreas { get; set; }
         public ICollection<Education> Educations { get; set; }
 
         
         public WorkingHour WorkingHour { get; set; } //Make appointment'teki doktora uygun çalışma saatleri
 
 
-        public Education Education { get; set; }
+       
     }
 }

@@ -17,6 +17,8 @@ namespace Cms.Data.Entity
 		[ForeignKey("Blog")]
 		public int BlogId { get; set; }
 
+		public Blog Blog { get; set; }
+
 		[Required(ErrorMessage = "{0} boş geçilemez")]
         [StringLength(200, MinimumLength = 1, ErrorMessage = "{0} alanı en az {2} en fazla {1} karakter olabilir")]
         [DisplayName("Dosya yolu")]

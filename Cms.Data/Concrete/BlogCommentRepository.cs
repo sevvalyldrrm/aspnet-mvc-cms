@@ -14,7 +14,13 @@ namespace Cms.Data.Concrete
 	public class BlogCommentRepository : Repository<BlogComment, AppDbContext>, IBlogCommentRepository
 	{
 		private readonly AppDbContext _context;
-		public async Task<List<BlogComment>> GetAllBlogCommentsByIncludeAsync()
+
+        public BlogCommentRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<BlogComment>> GetAllBlogCommentsByIncludeAsync()
 		{
 			return await _context.BlogComments.Include(p => p.AppUser).Include(p => p.Blog).ToListAsync();
 
