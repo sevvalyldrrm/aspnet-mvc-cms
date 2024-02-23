@@ -23,6 +23,7 @@ namespace Cms.Data.Entity
 		public string Comment { get; set; }
 
 		public bool IsActive { get; set; }
+
 		//[ForeignKey(nameof(Patient.Id))]
 		//public string PatientId { get; set; }
 

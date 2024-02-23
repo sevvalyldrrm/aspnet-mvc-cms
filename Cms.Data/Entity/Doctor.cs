@@ -31,6 +31,7 @@ namespace Cms.Data.Entity
         public ICollection<SurgeryDoctor> SurgeryDoctors { get; set; }
         public virtual ICollection<WorkingHour> WorkingHours { get; set; }
         public virtual ICollection<Appointment> Appointments { get; set; }
+        public virtual ICollection<Education> Educations { get; set; }
 
         public string DocFacebook { get; set; }
         public string DocX { get; set; }

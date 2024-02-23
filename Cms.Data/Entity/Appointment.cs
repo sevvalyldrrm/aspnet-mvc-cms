@@ -40,7 +40,7 @@ namespace Cms.Data.Entity
         [Required]
         public DateTime AppointmentDate { get; set; }
 
-		[ForeignKey(nameof(AppointmentManager.AppointmentManagerId))]
+		[ForeignKey(nameof(AppointmentManager.Id))]
 		public int AppointmentManagerId { get; set; }
 		public AppointmentManager AppointmentManager { get; set; }
         
