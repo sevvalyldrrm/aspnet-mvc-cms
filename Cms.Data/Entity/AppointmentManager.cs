@@ -14,6 +14,7 @@ namespace Cms.Data.Entity
         [ForeignKey(nameof(Doctor.Id))]
         public string DoctorId { get; set; }
         public Doctor Doctor { get; set; }
+
         [ForeignKey(nameof(Patient.Id))]
         public string PatientId { get; set; }
         public Patient Patient { get; set; }
