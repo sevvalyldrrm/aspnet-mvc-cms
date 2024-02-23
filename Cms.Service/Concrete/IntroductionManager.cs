@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,61 +10,28 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class IntroductionManager : IIntroductionService
+    public class IntroductionManager : GenericManager<Introduction>,IIntroductionService
     {
-        public Task AddAsync(Introduction entity)
+       private readonly IIntroductionRepository _repository;
+
+        public IntroductionManager(IIntroductionRepository repository) : base(repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task DeleteAsync(Introduction entity)
+        public async Task<List<Introduction>> GetAllIntroductionsByIncludeAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllIntroductionsByIncludeAsync();
         }
 
-        public Task<Introduction> FindAsync(int id)
+        public async Task<Introduction> GetIntroductionByIncludeAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetIntroductionByIncludeAsync(id);
         }
 
-        public Task<List<Introduction>> GetAllAsync()
+        public async Task<List<Introduction>> GetSomeIntroductionsByIncludeAsync(Expression<Func<Introduction, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Introduction>> GetAllAsync(Expression<Func<Introduction, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Introduction>> GetAllIntroductionsByIncludeAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Introduction> GetAsync(Expression<Func<Introduction, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Introduction> GetIntroductionByIncludeAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Introduction>> GetSomeIntroductionsByIncludeAsync(Expression<Func<Introduction, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(Introduction entity)
-        {
-            throw new NotImplementedException();
+            return await _repository.GetSomeIntroductionsByIncludeAsync(expression);
         }
     }
 }

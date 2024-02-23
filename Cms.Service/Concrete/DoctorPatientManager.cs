@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,46 +10,14 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class DoctorPatientManager : IDoctorPatientService
+    public class DoctorPatientManager : GenericManager<DoctorPatient>,IDoctorPatientService
     {
-        public Task AddAsync(DoctorPatient entity)
+        private readonly IDoctorPatientRepository _repository;
+
+        public DoctorPatientManager(IDoctorPatientRepository repository) : base(repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task DeleteAsync(DoctorPatient entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DoctorPatient> FindAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<DoctorPatient>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<DoctorPatient>> GetAllAsync(Expression<Func<DoctorPatient, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<DoctorPatient> GetAsync(Expression<Func<DoctorPatient, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(DoctorPatient entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

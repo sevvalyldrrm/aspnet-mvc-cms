@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,61 +10,28 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class SurgeryDoctorManager : ISurgeryDoctorService
+    public class SurgeryDoctorManager : GenericManager<SurgeryDoctor>,ISurgeryDoctorService
     {
-        public Task AddAsync(SurgeryDoctor entity)
+       private readonly ISurgeryDoctorRepository _repository;
+
+        public SurgeryDoctorManager(ISurgeryDoctorRepository repository) : base(repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task DeleteAsync(SurgeryDoctor entity)
+        public async Task<List<SurgeryDoctor>> GetAllSurgeryDoctorsByIncludeAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllSurgeryDoctorsByIncludeAsync();
         }
 
-        public Task<SurgeryDoctor> FindAsync(int id)
+        public async Task<List<SurgeryDoctor>> GetSomeSurgeryDoctorsByIncludeAsync(Expression<Func<SurgeryDoctor, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _repository.GetSomeSurgeryDoctorsByIncludeAsync(expression);
         }
 
-        public Task<List<SurgeryDoctor>> GetAllAsync()
+        public async Task<SurgeryDoctor> GetSurgeryDoctorByIncludeAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<SurgeryDoctor>> GetAllAsync(Expression<Func<SurgeryDoctor, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<SurgeryDoctor>> GetAllSurgeryDoctorsByIncludeAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<SurgeryDoctor> GetAsync(Expression<Func<SurgeryDoctor, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<SurgeryDoctor>> GetSomeSurgeryDoctorsByIncludeAsync(Expression<Func<SurgeryDoctor, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<SurgeryDoctor> GetSurgeryDoctorByIncludeAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(SurgeryDoctor entity)
-        {
-            throw new NotImplementedException();
+            return await _repository.GetSurgeryDoctorByIncludeAsync(id);
         }
     }
 }

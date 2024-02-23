@@ -12,8 +12,10 @@ namespace Cms.Service.Concrete
 {
     public class AdminManager : UserManager<Admin>, IAdminService
     {
-        public AdminManager(IUserRepository<Admin> repository) : base(repository)
+        private readonly IAdminRepository _repository;
+        public AdminManager(IAdminRepository  repository) : base(repository)
         {
+            _repository=repository;
         }
 
       

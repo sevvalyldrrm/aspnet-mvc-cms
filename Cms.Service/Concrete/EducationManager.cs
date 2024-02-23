@@ -1,4 +1,5 @@
-﻿using Cms.Data.Entity;
+﻿using Cms.Data.Abstract;
+using Cms.Data.Entity;
 using Cms.Service.Abstract;
 using System;
 using System.Collections.Generic;
@@ -9,61 +10,28 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class EducationManager : IEducationService
+    public class EducationManager : GenericManager<Education>,IEducationService
     {
-        public Task AddAsync(Education entity)
+        private readonly IEducationRepository _repository;
+
+        public EducationManager(IEducationRepository repository) : base(repository)
         {
-            throw new NotImplementedException();
+            _repository = repository;
         }
 
-        public Task DeleteAsync(Education entity)
+        public async Task<List<Education>> GetAllEducationsByIncludeAsync()
         {
-            throw new NotImplementedException();
+            return await _repository.GetAllEducationsByIncludeAsync();
         }
 
-        public Task<Education> FindAsync(int id)
+        public async Task<Education> GetEducationByIncludeAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetEducationByIncludeAsync(id);
         }
 
-        public Task<List<Education>> GetAllAsync()
+        public async Task<List<Education>> GetSomeEducationsByIncludeAsync(Expression<Func<Education, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Education>> GetAllAsync(Expression<Func<Education, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Education>> GetAllEducationsByIncludeAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Education> GetAsync(Expression<Func<Education, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Education> GetEducationByIncludeAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Education>> GetSomeEducationsByIncludeAsync(Expression<Func<Education, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(Education entity)
-        {
-            throw new NotImplementedException();
+            return await _repository.GetSomeEducationsByIncludeAsync(expression);
         }
     }
 }

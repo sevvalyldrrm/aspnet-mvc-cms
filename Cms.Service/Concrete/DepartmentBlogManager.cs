@@ -11,38 +11,13 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-	public class DepartmentBlogManager : IDepartmentBlogService
+	public class DepartmentBlogManager : GenericManager<DepartmentBlog>,IDepartmentBlogService
 	{
 		private readonly IDepartmentBlogRepository _repository;
 
-		public DepartmentBlogManager(IDepartmentBlogRepository repository)
-		{
+		public DepartmentBlogManager(IDepartmentBlogRepository repository) : base(repository)
+        {
 			_repository = repository;
-		}
-
-		public async Task AddAsync(DepartmentBlog entity)
-		{
-			await _repository.AddAsync(entity);
-		}
-
-		public async Task DeleteAsync(DepartmentBlog entity)
-		{
-			await _repository.DeleteAsync(entity);
-		}
-
-		public async Task<DepartmentBlog> FindAsync(int id)
-		{
-			return await _repository.FindAsync(id);
-		}
-
-		public async Task<List<DepartmentBlog>> GetAllAsync()
-		{
-			return await _repository.GetAllAsync();
-		}
-
-		public async Task<List<DepartmentBlog>> GetAllAsync(Expression<Func<DepartmentBlog, bool>> expression)
-		{
-			return await _repository.GetAllAsync(expression);
 		}
 
         public async Task<List<DepartmentBlog>> GetAllDepartmentBlogByIncludeAsync()
@@ -50,29 +25,14 @@ namespace Cms.Service.Concrete
             return await _repository.GetAllDepartmentBlogByIncludeAsync();
         }
 
-        public async Task<DepartmentBlog> GetAsync(Expression<Func<DepartmentBlog, bool>> expression)
-		{
-			return await _repository.GetAsync(expression);
-		}
-
         public async Task<DepartmentBlog> GetDepartmentBlogByIncludeAsync(int id)
         {
-            return await _repository.GetDepartmentBlogByIncludeAsync(id); 
+            return await _repository.GetDepartmentBlogByIncludeAsync(id);
         }
 
         public async Task<List<DepartmentBlog>> GetSomeDepartmentBlogByIncludeAsync(Expression<Func<DepartmentBlog, bool>> expression)
         {
             return await _repository.GetSomeDepartmentBlogByIncludeAsync(expression);
         }
-
-        public async Task<int> SaveAsync()
-		{
-			return await _repository.SaveAsync();
-		}
-
-		public async Task UpdateAsync(DepartmentBlog entity)
-		{
-			await _repository.UpdateAsync(entity);
-		}
-	}
+    }
 }
