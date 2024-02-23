@@ -12,7 +12,7 @@ namespace Cms.Service.Concrete
 {
     public class AdminManager : UserManager<Admin>, IAdminService
     {
-        public AdminManager(IUserRepository<Appointment> repository) : base(repository)
+        public AdminManager(IUserRepository<Admin> repository) : base(repository)
         {
         }
 

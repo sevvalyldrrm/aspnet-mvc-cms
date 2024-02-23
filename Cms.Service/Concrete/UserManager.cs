@@ -13,16 +13,10 @@ namespace Cms.Service.Concrete
     public class UserManager<T> : IUserService<T> where T : class
     {
         private readonly IUserRepository<T> _repository;
-        private IUserRepository<Appointment> repository;
 
         public UserManager(IUserRepository<T> repository)
         {
             _repository = repository;
-        }
-
-        public UserManager(IUserRepository<Appointment> repository)
-        {
-            this.repository = repository;
         }
 
         public async Task AddAsync(T entity)
