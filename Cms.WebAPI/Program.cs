@@ -1,5 +1,9 @@
+using Cms.Data.Abstract;
+using Cms.Data.Concrete;
 using Cms.Data.DataContext;
 using Cms.Data.Entity;
+using Cms.Service.Abstract;
+using Cms.Service.Concrete;
 using Cms.WebAPI.Services.Abstract;
 using Cms.WebAPI.Services.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -19,6 +23,25 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
+
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IAdminService, AdminManager>();
+
+builder.Services.AddScoped<IAppointmentManagerRepository, AppointmentManagerRepository>();
+builder.Services.AddScoped<IAppointmentManagerService, AppointmentManagerManager>();
+
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IAppointmentService, Cms.Service.Concrete.AppointmentManager>();
+
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<IBlogService, BlogManager>();
+
+builder.Services.AddScoped<IBlogCommentRepository, BlogCommentRepository>();
+builder.Services.AddScoped<IBlogCommentService, BlogCommentManager>();
+
+
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConStr"));

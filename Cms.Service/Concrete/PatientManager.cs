@@ -20,9 +20,19 @@ namespace Cms.Service.Concrete
 			_repository = repository;
 		}
 
+        public async Task<List<Patient>> GetAllAppointmentsofPatientByIncludeAsync()
+        {
+            return await _repository.GetAllAppointmentsofPatientByIncludeAsync();
+        }
+
         public async Task<List<Patient>> GetAllPatientsByIncludeAsync()
         {
             return await _repository.GetAllPatientsByIncludeAsync();
+        }
+
+        public async Task<List<Patient>> GetAllSurgeriesofPatientByIncludeAsync()
+        {
+            return await _repository.GetAllSurgeriesofPatientByIncludeAsync();
         }
 
         public async Task<Patient> GetPatientByIncludeAsync(string id)

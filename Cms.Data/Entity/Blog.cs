@@ -15,7 +15,7 @@ namespace Cms.Data.Entity
 		//Blog Single
 		[Required(ErrorMessage = "{0} boş geçilemez")]
 		[ForeignKey("AppUser")]
-		public int AppUserId { get; set; }
+		public string? AppUserId { get; set; }
 
 		public AppUser AppUser { get; set; }
 

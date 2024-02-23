@@ -15,11 +15,14 @@ namespace Cms.Data.Entity
         public string Title { get; set; }
         public string DescriptionShort { get; set; }
         public string DescriptionLong { get; set; }
-        public ICollection<string> DepartmentFeatures { get; set; }
-        public Department Department { get; set; }
+        [NotMapped]
+        public virtual ICollection<string> DepartmentFeatures { get; set; }
+
 
         [ForeignKey(nameof(Department.Id))]
         public int DepartmentId { get; set; }
+
+        public Department Departments { get; set; }
 
 
     }

@@ -17,7 +17,8 @@ namespace Cms.Data.Entity
         public Doctor Doctor { get; set; }
         public string Description { get; set; }
         public string MySkills { get; set; }
-        public ICollection<string> ExpertisesAreas { get; set; }
+        [NotMapped]
+        public virtual ICollection<string> ExpertisesAreas { get; set; }
         public ICollection<Education> Educations { get; set; }
         public WorkingHour WorkingHour { get; set; } //Make appointment'teki doktora uygun çalışma saatleri
 

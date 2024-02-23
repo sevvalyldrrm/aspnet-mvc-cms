@@ -22,7 +22,7 @@ namespace Cms.Data.Entity
 		[StringLength(200, ErrorMessage = "{0} alanı en fazla {1} karakter olabilir")]
 		public string Description { get; set; } //DepartmentHTML'de kullanılacak
 
-		[ForeignKey(nameof(DepartmentDetails.Id))]
+		[ForeignKey(nameof(DepartmentDetail.Id))]
 		public int DepartmentDetailsId { get; set; }
         public DepartmentDetail DepartmentDetails { get; set; }
         public string? ImagePath { get; set; }
