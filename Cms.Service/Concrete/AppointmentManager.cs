@@ -13,23 +13,25 @@ namespace Cms.Service.Concrete
 {
 	public class AppointmentManager : GenericManager<Appointment>, IAppointmentService
     {
-        public AppointmentManager(IRepository<Appointment> repository) : base(repository)
+        private readonly IAppointmentRepository _repository;
+		public AppointmentManager(IAppointmentRepository repository) : base(repository)
+		{
+            _repository = repository;
+		}
+
+		public async Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
         {
+           return await _repository.GetAllAppointmentsByIncludeAsync();
         }
 
-        public Task<List<Appointment>> GetAllAppointmentsByIncludeAsync()
+        public async Task<Appointment> GetAppointmentByIncludeAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetAppointmentByIncludeAsync(id);
         }
 
-        public Task<Appointment> GetAppointmentByIncludeAsync(int id)
+        public async Task<List<Appointment>> GetSomeAppointmentsByIncludeAsync(Expression<Func<Appointment, bool>> expression)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Appointment>> GetSomeAppointmentsByIncludeAsync(Expression<Func<Appointment, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
+            return await _repository.GetSomeAppointmentsByIncludeAsync(expression);
+		}
     }
 }
