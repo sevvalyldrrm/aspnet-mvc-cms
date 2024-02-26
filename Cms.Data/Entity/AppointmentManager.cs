@@ -22,7 +22,9 @@ namespace Cms.Data.Entity
         public DateTime EndingTime { get; set; }
         public AppointmentStatus Status { get; set; }
 
-        public ICollection<WorkingHour> WorkingHours { get; set; }
+        public ICollection<WorkingHour> WorkingHours { get; set; } //Service'leri ayarlayacağız.
+
+        public WorkingHour WorkingHour { get; set; }
     }
 }
 

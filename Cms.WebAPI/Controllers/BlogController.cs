@@ -36,7 +36,7 @@ namespace Cms.WebAPI.Controllers
         public async Task<ActionResult<Blog>> FindAsync(int id)
         {
             var result = await _blogService.FindAsync(id);
-            if (result == null) return NotFound();
+            if (result is null) return NotFound();
             return result;
         }
 
