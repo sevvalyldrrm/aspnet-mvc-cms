@@ -403,7 +403,7 @@ namespace Cms.Data.Migrations
                         column: x => x.AppointmentManagerId,
                         principalTable: "AppointmentManagers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Appointments_AspNetUsers_DoctorId",
                         column: x => x.DoctorId,

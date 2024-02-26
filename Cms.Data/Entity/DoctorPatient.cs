@@ -9,7 +9,7 @@ namespace Cms.Data.Entity
 {
     public class DoctorPatient:BaseEntity
     {
-        public string DoctorId { get; set; }
+        public string DoctorId { get; set; } //Uğur'u yayından atın.
         public Doctor Doctor { get; set; }
 
         public string PatientId { get; set; }

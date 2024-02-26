@@ -1,3 +1,7 @@
+
+
+
+
 public async Task<List<Doctor>> GetSomeDoctorsByIncludeAsync(Expression<Func<Doctor, bool>> expression)
 		{
 			return await _context.Doctors.Where(expression).Include(d => d.DoctorPatients).ThenInclude(dp => dp.Patient).Include(d => d.Role).Include(d => d.Department).ToListAsync();

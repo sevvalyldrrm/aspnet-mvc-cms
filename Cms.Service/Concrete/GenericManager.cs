@@ -11,7 +11,7 @@ namespace Cms.Service.Concrete
 {
     public class GenericManager<T> : IGenericService<T> where T : class
     {
-        private readonly IRepository<T> _repository;
+        private readonly IRepository<T> _repository; //list version eklenebilir.
 
         public GenericManager(IRepository<T> repository)
         {
