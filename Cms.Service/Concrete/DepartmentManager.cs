@@ -15,7 +15,7 @@ namespace Cms.Service.Concrete
 	{
 		private readonly IDepartmentRepository _repository;
 
-		public DepartmentManager(IDepartmentRepository repository) : base(repository)
+		public DepartmentManager(IDepartmentRepository repository) : base(repository) //Burası genel mi? Burayı silip tekrar bakalım.
         {
 			_repository = repository;
 		}

@@ -12,7 +12,7 @@ using Cms.Data.DataContext;
 
 namespace Cms.Data.Concrete
 {
-	public class Repository<TEntity, TContext> : IRepository<TEntity>
+	public class Repository<TEntity, TContext> : IRepository<TEntity>  //using'ler kaldırılmalı.
 		where TEntity : class
 		where TContext : AppDbContext, new()
 	{
