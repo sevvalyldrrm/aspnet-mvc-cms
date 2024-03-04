@@ -21,10 +21,6 @@ namespace Cms.Data.Entity
 
         public DateTime SurgeryDate { get; set; }
 
-        //public Surgery()
-        //{
-        //    SurgeryDoctors = new HashSet<SurgeryDoctor>();
-        //}
-        //hocaya sor
+
     }
 }
