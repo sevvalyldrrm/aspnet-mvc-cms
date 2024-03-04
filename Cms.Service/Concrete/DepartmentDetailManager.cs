@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Cms.Service.Concrete
 {
-    public class DepartmanDetailManager : GenericManager<DepartmentDetail>,IDepartmentDetailService
+    public class DepartmentDetailManager : GenericManager<DepartmentDetail>,IDepartmentDetailService
     {
        private readonly IDepartmentDetailRepository _repository;
-        public DepartmanDetailManager(IDepartmentDetailRepository repository) : base(repository)
+        public DepartmentDetailManager(IDepartmentDetailRepository repository) : base(repository)
         {
             _repository = repository;
         }

@@ -24,6 +24,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
+
+
+
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IAdminService, AdminManager>();
 
@@ -38,6 +41,43 @@ builder.Services.AddScoped<IBlogService, BlogManager>();
 
 builder.Services.AddScoped<IBlogCommentRepository, BlogCommentRepository>();
 builder.Services.AddScoped<IBlogCommentService, BlogCommentManager>();
+
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<IBlogService, BlogManager>();
+
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+
+builder.Services.AddScoped<IDepartmentBlogRepository, DepartmentBlogRepository>();
+builder.Services.AddScoped<IDepartmentBlogService, DepartmentBlogManager>();
+
+builder.Services.AddScoped<IDepartmentDetailRepository, DepartmentDetailRepository>();
+builder.Services.AddScoped<IDepartmentDetailService, DepartmentDetailManager>();
+
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IDepartmentService, DepartmentManager>();
+
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+builder.Services.AddScoped<IDoctorService, DoctorManager>();
+
+builder.Services.AddScoped<IEducationRepository, EducationRepository>();
+builder.Services.AddScoped<IEducationService, EducationManager>();
+
+builder.Services.AddScoped<IIntroductionRepository, IntroductionRepository>();
+builder.Services.AddScoped<IIntroductionService, IntroductionManager>();
+
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientService, PatientManager>();
+
+builder.Services.AddScoped<ISurgeryDoctorRepository, SurgeryDoctorRepository>();
+builder.Services.AddScoped<ISurgeryDoctorService, SurgeryDoctorManager>();
+
+builder.Services.AddScoped<ISurgeryRepository, SurgeryRepository>();
+builder.Services.AddScoped<ISurgeryService, SurgeryManager>();
+
+builder.Services.AddScoped<IWorkingHourRepository, WorkingHourRepository>();
+builder.Services.AddScoped<IWorkingHourService, WorkingHourManager>();
+
 
 
 
