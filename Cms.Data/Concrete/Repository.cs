@@ -16,71 +16,60 @@ namespace Cms.Data.Concrete
 		where TEntity : class
 		where TContext : AppDbContext, new()
 	{
+		private readonly DbContext _dbContext;
+
+		public Repository(DbContext dbContext)
+		{
+			_dbContext = dbContext;
+		}
+
 		public async Task AddAsync(TEntity entity)
 		{
-			using (var context = new TContext())
-			{
-				await context.Set<TEntity>().AddAsync(entity);
-				await context.SaveChangesAsync();
-			}
+
+			await _dbContext.Set<TEntity>().AddAsync(entity);
+			await _dbContext.SaveChangesAsync();
 		}
 
 		public async Task DeleteAsync(TEntity entity)
 		{
-			using (var context = new TContext())
-			{
-				context.Set<TEntity>().Remove(entity);
-				await context.SaveChangesAsync();
-			}
+			_dbContext.Set<TEntity>().Remove(entity);
+			await _dbContext.SaveChangesAsync();
 		}
 
 		public async Task<TEntity> FindAsync(int id)
 		{
-			using (var context = new TContext())
-			{
-				return await context.Set<TEntity>().FindAsync(id);
-			}
+
+			return await _dbContext.Set<TEntity>().FindAsync(id);
 		}
 
 		public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null)
 		{
-			using (var context = new TContext())
-			{
-				return  filter == null ? await context.Set<TEntity>().ToListAsync() : await context.Set<TEntity>().Where(filter).ToListAsync();
-			}
+
+			return filter == null ? await _dbContext.Set<TEntity>().ToListAsync() : await _dbContext.Set<TEntity>().Where(filter).ToListAsync();
 		}
 
 		public async Task<List<TEntity>> GetAllAsync()
 		{
-			using (var context = new TContext())
-			{
-				return await context.Set<TEntity>().ToListAsync();
-			}
+
+			return await _dbContext.Set<TEntity>().ToListAsync();
 		}
 
 		public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)
 		{
-			using (var context = new TContext())
-			{
-				return await context.Set<TEntity>().FirstOrDefaultAsync(expression);
-			}
+
+			return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(expression);
 		}
 
 		public async Task<int> SaveAsync()
 		{
-			using (var context = new TContext())
-			{
-				return await context.SaveChangesAsync();
-			}
+			return await _dbContext.SaveChangesAsync();
 		}
 
 		public async Task UpdateAsync(TEntity entity)
 		{
-			using (var context = new TContext())
-			{
-			    context.Entry(entity).State = EntityState.Modified;
-				await context.SaveChangesAsync();
-			}
+			_dbContext.Entry(entity).State = EntityState.Modified;
+			await _dbContext.SaveChangesAsync();
+
 		}
 	}
 
